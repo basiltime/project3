@@ -1,0 +1,337 @@
+* {
+  font-family: sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* "How it works" and "Restaurants" section headers */
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.header .logo {
+  width: 175px;
+  background-color: #ffffff;
+  padding: 25px 0px;
+}
+
+.header .header__paragraph {
+  background-color: #e5e5e5;
+  color: black;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: space-around;
+      -ms-flex-align: space-around;
+          align-items: space-around;
+  padding: 17px 0px;
+  -webkit-box-shadow: inset 0px 2px 5px #b2b2b2;
+          box-shadow: inset 0px 2px 5px #b2b2b2;
+}
+
+.header .header__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #f3f3f3;
+  color: black;
+  width: 100%;
+}
+
+.header .header__main .header__h2 {
+  background-color: #f3f3f3;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 40px 50px;
+}
+
+.header .header__main .header__h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #f3f3f3;
+  color: black;
+  font-weight: lighter;
+  text-align: center;
+  width: 80%;
+}
+
+.button {
+  -webkit-box-shadow: 0px 3px 15px 0px #e5e5e5;
+          box-shadow: 0px 3px 15px 0px #e5e5e5;
+  border-radius: 25px;
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  background-image: linear-gradient(#FF79DA, #9356DC);
+  /* will be "on top", if browser supports it */
+  font-family: sans-serif;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 40px 50px;
+  color: white;
+}
+
+/* Generic section element rules */
+section h2 {
+  width: 90%;
+  padding: 30px 0px;
+}
+
+/* How it works section rules */
+section:nth-of-type(1) {
+  background-color: white;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+ol {
+  width: 98%;
+  counter-reset: item;
+  list-style-type: none;
+}
+
+/* Styles the numbers */
+li:before {
+  background-color: #9356DC;
+  color: white;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* Gets rid of period after the number */
+  content: counter(item) "  ";
+  counter-increment: item;
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
+}
+
+li {
+  /* ONLY styles the <li>, not the text or icons inside */
+  list-style-position: inside;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin: 20px;
+  white-space: nowrap;
+}
+
+ol a {
+  /* Styles icon and the text */
+  -webkit-box-shadow: 0px 3px 15px 0px #cccccc;
+          box-shadow: 0px 3px 15px 0px #cccccc;
+  z-index: 1;
+  text-decoration: none;
+  color: black;
+  width: 90%;
+  background-color: #f3f3f3;
+  border-radius: 20px;
+  padding-right: 5px;
+}
+
+ol i {
+  /* just the icons */
+  padding: 25px;
+  color: #666666;
+}
+
+/* Restaurants section rules */
+section:nth-of-type(2) {
+  /* shorten this code along with the how it works section, only dif is background color rule*/
+  background-color: #f3f3f3;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.card {
+  -webkit-box-shadow: 0px 3px 15px 0px #e5e5e5;
+          box-shadow: 0px 3px 15px 0px #e5e5e5;
+  background-color: white;
+  color: black;
+  width: 90%;
+  max-width: 400px;
+  height: 251px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-radius: 15px;
+  margin: 15px;
+}
+
+.card__img {
+  height: 174px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  -o-object-position: 50% 10%;
+     object-position: 50% 10%;
+}
+
+.card h3 {
+  margin: 10px 0px 10px 10px;
+}
+
+.card p {
+  margin: 0px 0px 10px 10px;
+}
+
+footer {
+  background-color: #282828;
+  color: white;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 8% 0% 10% 5%;
+}
+
+footer > a {
+  padding: 7px;
+  width: 90%;
+}
+
+footer i {
+  padding-right: 7px;
+}
+
+footer img {
+  /* Changes color of logo from black to white */
+  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
+          filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
+  width: 100px;
+  padding-bottom: 14px;
+}
+/*# sourceMappingURL=main.css.map */

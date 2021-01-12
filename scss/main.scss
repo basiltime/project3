@@ -1,0 +1,272 @@
+* {
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+  }
+
+    
+*, *:before, *:after {
+-webkit-box-sizing: border-box; 
+-moz-box-sizing: border-box; 
+box-sizing: border-box;
+}
+
+// This function changes text color depending on background color lightness
+@function set-text-color($bg-color) {    
+    
+    @if (lightness( $bg-color ) < 70%) {   
+      @return white;
+    } @else {   
+        @return black;
+    }
+}
+
+
+// Use this mixin to access set-text-color function
+@mixin background-color($bg-color){            
+    background-color: $bg-color;                
+    color: set-text-color($bg-color);
+}
+
+@mixin flex-column-center {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+@mixin box-shadow($color: $color-med-gray) {
+    box-shadow: 0px 3px 15px 0px $color;
+}
+
+/* "How it works" and "Restaurants" section headers */
+@mixin section-header { 
+    width: 90%;
+    padding: 30px 0px;
+}
+
+// z-indexes map
+$layers: (
+    a: 1,
+    number: 2,
+);
+
+// z-indexes mixin
+@mixin layer($layer-name) {
+    z-index: map-get($layers, $layer-name);
+}
+
+$color-light-gray: #f3f3f3;
+$color-med-gray: #e5e5e5;
+$color-primary: #9356DC;
+$color-secondary: #FF79DA;
+$color-tertiary: #99E2D0;
+
+main {
+@include flex-column-center()
+}
+
+.header {
+    @include flex-column-center();
+    width: 100%;
+
+    .logo {
+    width: 175px;
+    background-color: #ffffff;  
+    padding: 25px 0px;
+    }
+
+    .header__paragraph {
+    @include background-color($color-med-gray);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: space-around;
+    padding: 17px 0px;
+    box-shadow: inset 0px 2px 5px darken($color-med-gray, 20%);
+    }
+
+    
+    .header__main {
+    @include flex-column-center;
+    @include background-color($color-light-gray);
+    width: 100%;
+
+        .header__h2 {
+        @include background-color($color-light-gray);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 40px 50px;
+        }
+    
+        .header__h3 {
+        @include flex-column-center;
+        @include background-color($color-light-gray);
+        font-weight: lighter;
+        text-align: center;
+        width: 80%;
+    
+        } 
+
+    }
+
+}
+
+.button {
+    @include box-shadow();
+    border-radius: 25px;
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    background-image: linear-gradient(#FF79DA, #9356DC); /* will be "on top", if browser supports it */
+    font-family: sans-serif;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 40px 50px;
+    color: white;
+}
+
+/* Generic section element rules */ 
+
+section h2 {
+    @include section-header;
+}
+
+/* How it works section rules */ 
+
+section:nth-of-type(1) {
+    @include background-color(white);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    
+    }
+ol {
+    width: 98%;
+    counter-reset: item;
+    list-style-type: none;
+
+}
+
+/* Styles the numbers */
+li:before {
+    @include background-color($color-primary);
+    @include layer(number);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Gets rid of period after the number */
+    content: counter(item) "  "; 
+    counter-increment: item;
+    width: 24px;
+    height: 24px;
+    border-radius: 20px;
+   
+}
+
+li {             
+    /* ONLY styles the <li>, not the text or icons inside */
+    list-style-position: inside;
+    display: flex;
+    align-items: baseline;
+    margin: 20px;
+    white-space: nowrap;
+  
+}
+
+ol a {              
+    /* Styles icon and the text */
+    @include box-shadow(darken($color-med-gray, 10%));
+    @include layer(a);
+    text-decoration: none;
+    color: black;
+    width: 90%;
+    background-color: $color-light-gray;
+    border-radius: 20px;
+    padding-right: 5px;
+
+}
+
+ol i {
+    /* just the icons */ 
+    padding: 25px;
+    color: darken($color-med-gray, 50%);
+}
+
+/* Restaurants section rules */ 
+
+section:nth-of-type(2) {         /* shorten this code along with the how it works section, only dif is background color rule*/
+    @include background-color($color-light-gray);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.card {
+    @include box-shadow();
+    @include background-color(white);
+    width: 90%;
+    max-width: 400px;
+    height: 251px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 15px;
+    margin: 15px;
+    }
+
+
+    .card__img {
+        height: 174px;
+        width: 100%;
+        object-fit: cover;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        object-position: 50% 10%; }
+    
+
+    .card h3 {
+        margin: 10px 0px 10px 10px;
+    }
+
+
+    .card p {
+        margin: 0px 0px 10px 10px;
+    }
+
+footer {
+@include background-color(#282828);
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 8% 0% 10% 5%;
+}
+
+footer > a {
+    padding: 7px;
+    width: 90%;
+}
+
+footer i {
+    padding-right: 7px;
+}
+
+footer img {
+    /* Changes color of logo from black to white */
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
+    width: 100px;
+    padding-bottom: 14px;
+}
