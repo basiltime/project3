@@ -1,0 +1,28 @@
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+    
+
+// Use this mixin to access set-text-color function
+@mixin background-color($bg-color){            
+    background-color: $bg-color;                
+    color: set-text-color($bg-color);
+}
+
+@mixin box-shadow($color: $color-med-gray) {
+    box-shadow: 0px 3px 15px 0px $color;
+}
+
+// "How it works" and "Restaurants" section headers
+@mixin section-header { 
+    width: 90%;
+    padding: 30px 0px;
+}
+
+// z-indexes mixin
+@mixin layer($layer-name) {
+    z-index: map-get($layers, $layer-name);
+}

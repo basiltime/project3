@@ -1,49 +1,19 @@
-* {
-    font-family: sans-serif;
-    margin: 0px;
-    padding: 0px;
-  }
+@import "./utils/variables";
+@import "./utils/functions";
+@import "./utils/mixins";
 
-    
-*, *:before, *:after {
--webkit-box-sizing: border-box; 
--moz-box-sizing: border-box; 
-box-sizing: border-box;
-}
+@import "./base/base";
+@import "./base/typography";
 
-// This function changes text color depending on background color lightness
-@function set-text-color($bg-color) {    
-    
-    @if (lightness( $bg-color ) < 70%) {   
-      @return white;
-    } @else {   
-        @return black;
-    }
-}
+@import "./components/_buttons";
 
 
-// Use this mixin to access set-text-color function
-@mixin background-color($bg-color){            
-    background-color: $bg-color;                
-    color: set-text-color($bg-color);
-}
 
-@mixin flex-column-center {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-}
 
-@mixin box-shadow($color: $color-med-gray) {
-    box-shadow: 0px 3px 15px 0px $color;
-}
 
-/* "How it works" and "Restaurants" section headers */
-@mixin section-header { 
-    width: 90%;
-    padding: 30px 0px;
-}
+
+
+
 
 // z-indexes map
 $layers: (
@@ -51,16 +21,8 @@ $layers: (
     number: 2,
 );
 
-// z-indexes mixin
-@mixin layer($layer-name) {
-    z-index: map-get($layers, $layer-name);
-}
 
-$color-light-gray: #f3f3f3;
-$color-med-gray: #e5e5e5;
-$color-primary: #9356DC;
-$color-secondary: #FF79DA;
-$color-tertiary: #99E2D0;
+
 
 main {
 @include flex-column-center()
@@ -86,10 +48,10 @@ main {
     box-shadow: inset 0px 2px 5px darken($color-med-gray, 20%);
     }
 
-    
+     
     .header__main {
     @include flex-column-center;
-    @include background-color($color-light-gray);
+    @include background-color($color-med-gray);
     width: 100%;
 
         .header__h2 {
@@ -269,4 +231,65 @@ footer img {
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
     width: 100px;
     padding-bottom: 14px;
+}
+
+
+
+
+// ----------------------- * Nested * Maps practice ----------------------- //
+
+$colour-one: #15DEA5;
+$colour-two: #001534;
+$colour-accent: #D6FFF5;
+$colour-white: #fff;
+$colour-invalid: #DB464B;
+
+$txt-input-palette: (
+    hover: (
+        bg: $colour-one,
+        border: $colour-two,
+        txt: $colour-white,
+    ),
+ 
+    inactive: (
+        bg: $colour-two,
+        border: $colour-invalid,
+        txt: $colour-white,
+    )
+);
+
+@mixin txt-input-palette($state) {
+    $palette: map-get($txt-input-palette, $state);
+    border: .1rem solid map-get($palette, border);
+    background-color: map-get($palette, bg);
+    color: map-get($palette, txt);
+}
+
+.block {
+    @include txt-input-palette(inactive);
+
+        &:hover {
+            @include txt-input-palette(hover)
+    
+}
+
+}
+
+// ----------------------- Loops practice ----------------------- //
+
+// this loop returns a class (notice it starts with a period?) with the key (youtube, articles etc) printed as a string, with the corresponding value as the value
+
+$colors: (
+    youtube: #d16e8d,
+    articles: #ffac84,
+    community: #3f78c9,
+    courses: #49c4a3,
+    block: pink,
+);
+
+@each $name, $color in $colors {     //$name, $color are going to reference the key/value pairs inside of $colors. The name and the color
+    .#{$name} {
+        color: $color;
+    }
+
 }
