@@ -7,9 +7,11 @@
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 
-/* "How it works" and "Restaurants" section headers */
 main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -81,7 +83,7 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #f3f3f3;
+  background-color: #e5e5e5;
   color: black;
   width: 100%;
 }
@@ -333,5 +335,37 @@ footer img {
           filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
   width: 100px;
   padding-bottom: 14px;
+}
+
+.block {
+  border: 0.1rem solid #DB464B;
+  background-color: #001534;
+  color: #fff;
+}
+
+.block:hover {
+  border: 0.1rem solid #001534;
+  background-color: #15DEA5;
+  color: #fff;
+}
+
+.youtube {
+  color: #d16e8d;
+}
+
+.articles {
+  color: #ffac84;
+}
+
+.community {
+  color: #3f78c9;
+}
+
+.courses {
+  color: #49c4a3;
+}
+
+.block {
+  color: pink;
 }
 /*# sourceMappingURL=main.css.map */
