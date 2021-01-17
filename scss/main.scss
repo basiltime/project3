@@ -23,9 +23,10 @@ $layers: (
 
 
 
-
-body {
-@include flex-column-center()
+@mixin logo {
+    width: 175px;
+    background-color: #ffffff;  
+    padding: 25px 0px 15px 0px;
 }
 
 .header {
@@ -33,9 +34,7 @@ body {
     width: 100%;
 
     .logo {
-    width: 175px;
-    background-color: #ffffff;  
-    padding: 25px 0px;
+    @include logo
     }
 
     .header__paragraph {
@@ -51,26 +50,26 @@ body {
      
     .header__main {
     @include flex-column-center;
-    @include background-color($color-med-gray);
+    @include background-color($color-light-gray);
     width: 100%;
 
         .header__h2 {
-        @include background-color($color-light-gray);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
-        padding: 40px 50px;
+        padding-top: 40px;
+  
         }
     
         .header__h3 {
         @include flex-column-center;
-        @include background-color($color-light-gray);
         font-weight: lighter;
         text-align: center;
-        width: 80%;
-    
+        width: 100%;
+        padding: 40px 0px 0px 0px;
+
         } 
 
     }
@@ -89,14 +88,16 @@ body {
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: none;
-    margin: 40px 50px;
+    margin: 30px 0px 55px 0px;
     color: white;
+    font-size: 16px;
 }
 
 /* Generic section element rules */ 
 
 section h2 {
     @include section-header;
+
 }
 
 /* How it works section rules */ 
@@ -108,13 +109,12 @@ section:nth-of-type(1) {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    
     }
 ol {
     width: 98%;
     counter-reset: item;
     list-style-type: none;
-
+   
 }
 
 /* Styles the numbers */
@@ -138,8 +138,10 @@ li {
     list-style-position: inside;
     display: flex;
     align-items: baseline;
-    margin: 20px;
-    white-space: nowrap;
+    margin: 5% 3%;
+
+    
+
   
 }
 
@@ -153,13 +155,14 @@ ol a {
     background-color: $color-light-gray;
     border-radius: 20px;
     padding-right: 5px;
-
+    
 }
 
 ol i {
     /* just the icons */ 
-    padding: 25px;
+    padding: 25px 20px;
     color: darken($color-med-gray, 50%);
+    
 }
 
 /* Restaurants section rules */ 
@@ -236,60 +239,4 @@ footer img {
 
 
 
-// ----------------------- * Nested * Maps practice ----------------------- //
 
-$colour-one: #15DEA5;
-$colour-two: #001534;
-$colour-accent: #D6FFF5;
-$colour-white: #fff;
-$colour-invalid: #DB464B;
-
-$txt-input-palette: (
-    hover: (
-        bg: $colour-one,
-        border: $colour-two,
-        txt: $colour-white,
-    ),
- 
-    inactive: (
-        bg: $colour-two,
-        border: $colour-invalid,
-        txt: $colour-white,
-    )
-);
-
-@mixin txt-input-palette($state) {
-    $palette: map-get($txt-input-palette, $state);
-    border: .1rem solid map-get($palette, border);
-    background-color: map-get($palette, bg);
-    color: map-get($palette, txt);
-}
-
-.block {
-    @include txt-input-palette(inactive);
-
-        &:hover {
-            @include txt-input-palette(hover)
-    
-}
-
-}
-
-// ----------------------- Loops practice ----------------------- //
-
-// this loop returns a class (notice it starts with a period?) with the key (youtube, articles etc) printed as a string, with the corresponding value as the value
-
-$colors: (
-    youtube: #d16e8d,
-    articles: #ffac84,
-    community: #3f78c9,
-    courses: #49c4a3,
-    block: pink,
-);
-
-@each $name, $color in $colors {     //$name, $color are going to reference the key/value pairs inside of $colors. The name and the color
-    .#{$name} {
-        color: $color;
-    }
-
-}

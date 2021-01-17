@@ -12,22 +12,6 @@
   padding: 0px;
 }
 
-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,7 +32,7 @@ main {
 .header .logo {
   width: 175px;
   background-color: #ffffff;
-  padding: 25px 0px;
+  padding: 25px 0px 15px 0px;
 }
 
 .header .header__paragraph {
@@ -83,14 +67,12 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #e5e5e5;
+  background-color: #f3f3f3;
   color: black;
   width: 100%;
 }
 
 .header .header__main .header__h2 {
-  background-color: #f3f3f3;
-  color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -105,7 +87,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  padding: 40px 50px;
+  padding-top: 40px;
 }
 
 .header .header__main .header__h3 {
@@ -122,11 +104,10 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #f3f3f3;
-  color: black;
   font-weight: lighter;
   text-align: center;
-  width: 80%;
+  width: 100%;
+  padding: 40px 0px 0px 0px;
 }
 
 .button {
@@ -144,14 +125,15 @@ main {
   text-align: center;
   -webkit-appearance: none;
   -moz-appearance: none;
-  margin: 40px 50px;
+  margin: 30px 0px 55px 0px;
   color: white;
+  font-size: 16px;
 }
 
 /* Generic section element rules */
 section h2 {
   width: 90%;
-  padding: 30px 0px;
+  padding: 40px 0px 10px 0px;
 }
 
 /* How it works section rules */
@@ -210,8 +192,7 @@ li {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  margin: 20px;
-  white-space: nowrap;
+  margin: 5% 3%;
 }
 
 ol a {
@@ -229,7 +210,7 @@ ol a {
 
 ol i {
   /* just the icons */
-  padding: 25px;
+  padding: 25px 20px;
   color: #666666;
 }
 
@@ -335,37 +316,5 @@ footer img {
           filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
   width: 100px;
   padding-bottom: 14px;
-}
-
-.block {
-  border: 0.1rem solid #DB464B;
-  background-color: #001534;
-  color: #fff;
-}
-
-.block:hover {
-  border: 0.1rem solid #001534;
-  background-color: #15DEA5;
-  color: #fff;
-}
-
-.youtube {
-  color: #d16e8d;
-}
-
-.articles {
-  color: #ffac84;
-}
-
-.community {
-  color: #3f78c9;
-}
-
-.courses {
-  color: #49c4a3;
-}
-
-.block {
-  color: pink;
 }
 /*# sourceMappingURL=main.css.map */
