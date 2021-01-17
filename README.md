@@ -1,7 +1,7 @@
 Page Content
 -----------------------------------
 
-Homepage (x1)
+__Homepage (x1)
 
 ● Display the location of restaurants. Eventually, it will be possible to choose restaurants close to a certain place.
 
@@ -11,18 +11,18 @@ Homepage (x1)
 
 the user is redirected to the menu page.
 
-Menu Pages (x4)
+__Menu Pages (x4)
 
 ● Four pages each containing a restaurant menu. 
 
-Footer
+__Footer
 
 ● The footer is identical on all pages.
 
 ● When you click on Contact, a link to an email address is made.
 
 
-Header
+__Header
 
 ● The header is present on all pages.
 
