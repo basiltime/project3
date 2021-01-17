@@ -1,4 +1,4 @@
-Page Content
+Project 3 Page Content
 ============
 
 **Homepage (x1)** 
@@ -11,10 +11,12 @@ Page Content
 
 the user is redirected to the menu page.
 <br>
+<br>
 
 **Menu Pages (x4)**
 -------------------
 ● Four pages each containing a restaurant menu. 
+<br>
 <br>
 
 **Footer**
@@ -22,6 +24,7 @@ the user is redirected to the menu page.
 ● The footer is identical on all pages.
 
 ● When you click on Contact, a link to an email address is made.
+<br>
 <br>
 
 **Header**
@@ -31,6 +34,10 @@ the user is redirected to the menu page.
 ● The home page contains the logo of the site.
 
 ● The menu pages contain a button to return to the home page.
+
+<br>
+<br>
+<br>
 
 Graphic Effects and Animations
 ==============================
