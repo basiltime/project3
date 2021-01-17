@@ -4,18 +4,30 @@ Page Content
 Homepage (x1)
 
 ● Display the location of restaurants. Eventually, it will be possible to choose restaurants close to a certain place.
+
 ● A short presentation of the company.
+
 ● A section containing the four menus in the form of maps. When clicking on the map,
+
 the user is redirected to the menu page.
 
 Menu Pages (x4)
-● Four pages each containing a restaurant menu. Footer
+
+● Four pages each containing a restaurant menu. 
+
+Footer
+
 ● The footer is identical on all pages.
+
 ● When you click on Contact, a link to an email address is made.
 
+
 Header
+
 ● The header is present on all pages.
+
 ● The home page contains the logo of the site.
+
 ● The menu pages contain a button to return to the home page.
 
 Graphic Effects and Animations
@@ -24,6 +36,7 @@ Graphic Effects and Animations
 The effects accessible by clicking or hovering are visible on the model. They must use CSS animations or transitions, no JavaScript, or library.
 
 Buttons
+
 ● When hovering, the background color of the main buttons should lighten slightly. The drop shadow should also be more visible.
 
 ● Eventually, visitors will be able to save their favorite menus. For that, a heart-shaped Like button is present on the model. When you click on it, it should fill up gradually. For this first version, the effect can appear on hovering on desktop instead of clicking.
