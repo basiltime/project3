@@ -1,7 +1,7 @@
 Page Content
 -----------------------------------
 
-_ _ Homepage (x1)
+**_Homepage (x1)_** 
 
 ● Display the location of restaurants. Eventually, it will be possible to choose restaurants close to a certain place.
 
