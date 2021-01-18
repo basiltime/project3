@@ -1,5 +1,4 @@
 * {
-  font-family: sans-serif;
   margin: 0px;
   padding: 0px;
 }
@@ -7,9 +6,16 @@
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: sans-serif;
   margin: 0px;
   padding: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: sans-serif;
 }
 
 .header {
@@ -35,7 +41,7 @@
   padding: 25px 0px 15px 0px;
 }
 
-.header .header__paragraph {
+.header__paragraph {
   background-color: #e5e5e5;
   color: black;
   width: 100%;
@@ -128,6 +134,7 @@
   margin: 30px 0px 55px 0px;
   color: white;
   font-size: 16px;
+  min-width: 200px;
 }
 
 /* Generic section element rules */
@@ -153,16 +160,16 @@ section:nth-of-type(1) {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  /* Styles the numbers */
 }
 
-ol {
+section:nth-of-type(1) ol {
   width: 98%;
   counter-reset: item;
   list-style-type: none;
 }
 
-/* Styles the numbers */
-li:before {
+section:nth-of-type(1) li:before {
   background-color: #9356DC;
   color: white;
   z-index: 2;
@@ -183,7 +190,7 @@ li:before {
   border-radius: 20px;
 }
 
-li {
+section:nth-of-type(1) li {
   /* ONLY styles the <li>, not the text or icons inside */
   list-style-position: inside;
   display: -webkit-box;
@@ -195,7 +202,7 @@ li {
   margin: 5% 3%;
 }
 
-ol a {
+section:nth-of-type(1) ol a {
   /* Styles icon and the text */
   -webkit-box-shadow: 0px 3px 15px 0px #cccccc;
           box-shadow: 0px 3px 15px 0px #cccccc;
@@ -208,7 +215,7 @@ ol a {
   padding-right: 5px;
 }
 
-ol i {
+section:nth-of-type(1) ol i {
   /* just the icons */
   padding: 25px 20px;
   color: #666666;
@@ -216,7 +223,7 @@ ol i {
 
 /* Restaurants section rules */
 section:nth-of-type(2) {
-  /* shorten this code along with the how it works section, only dif is background color rule*/
+  /* maybe I can shorten this code along with the how it works section, only dif is background color rule*/
   background-color: #f3f3f3;
   color: black;
   display: -webkit-box;
@@ -234,7 +241,7 @@ section:nth-of-type(2) {
   width: 100%;
 }
 
-.card {
+section:nth-of-type(2) .card {
   -webkit-box-shadow: 0px 3px 15px 0px #e5e5e5;
           box-shadow: 0px 3px 15px 0px #e5e5e5;
   background-color: white;
@@ -262,7 +269,7 @@ section:nth-of-type(2) {
   margin: 15px;
 }
 
-.card__img {
+section:nth-of-type(2) .card__img {
   height: 174px;
   width: 100%;
   -o-object-fit: cover;
@@ -273,17 +280,15 @@ section:nth-of-type(2) {
      object-position: 50% 10%;
 }
 
-.card h3 {
+section:nth-of-type(2) .card h3 {
   margin: 10px 0px 10px 10px;
 }
 
-.card p {
+section:nth-of-type(2) .card p {
   margin: 0px 0px 10px 10px;
 }
 
 footer {
-  background-color: #282828;
-  color: white;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -299,9 +304,11 @@ footer {
       -ms-flex-align: start;
           align-items: flex-start;
   padding: 8% 0% 10% 5%;
+  background-color: #282828;
+  color: white;
 }
 
-footer > a {
+footer a {
   padding: 7px;
   width: 90%;
 }
@@ -311,10 +318,10 @@ footer i {
 }
 
 footer img {
+  width: 100px;
+  padding-bottom: 14px;
   /* Changes color of logo from black to white */
   -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
           filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
-  width: 100px;
-  padding-bottom: 14px;
 }
 /*# sourceMappingURL=main.css.map */

@@ -10,11 +10,6 @@
 
 
 
-
-
-
-
-
 // z-indexes map
 $layers: (
     a: 1,
@@ -23,11 +18,6 @@ $layers: (
 
 
 
-@mixin logo {
-    width: 175px;
-    background-color: #ffffff;  
-    padding: 25px 0px 15px 0px;
-}
 
 .header {
     @include flex-column-center();
@@ -37,7 +27,7 @@ $layers: (
     @include logo
     }
 
-    .header__paragraph {
+    &__paragraph {
     @include background-color($color-med-gray);
     width: 100%;
     display: flex;
@@ -77,20 +67,7 @@ $layers: (
 }
 
 .button {
-    @include box-shadow();
-    border-radius: 25px;
-    display: inline-block;
-    border: none;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    background-image: linear-gradient(#FF79DA, #9356DC); /* will be "on top", if browser supports it */
-    font-family: sans-serif;
-    text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin: 30px 0px 55px 0px;
-    color: white;
-    font-size: 16px;
+    @include button;
 }
 
 /* Generic section element rules */ 
@@ -109,132 +86,118 @@ section:nth-of-type(1) {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    }
-ol {
-    width: 98%;
-    counter-reset: item;
-    list-style-type: none;
-   
-}
-
-/* Styles the numbers */
-li:before {
-    @include background-color($color-primary);
-    @include layer(number);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Gets rid of period after the number */
-    content: counter(item) "  "; 
-    counter-increment: item;
-    width: 24px;
-    height: 24px;
-    border-radius: 20px;
-   
-}
-
-li {             
-    /* ONLY styles the <li>, not the text or icons inside */
-    list-style-position: inside;
-    display: flex;
-    align-items: baseline;
-    margin: 5% 3%;
-
-    
-
   
-}
-
-ol a {              
-    /* Styles icon and the text */
-    @include box-shadow(darken($color-med-gray, 10%));
-    @include layer(a);
-    text-decoration: none;
-    color: black;
-    width: 90%;
-    background-color: $color-light-gray;
-    border-radius: 20px;
-    padding-right: 5px;
+    ol {
+        width: 98%;
+        counter-reset: item;
+        list-style-type: none;
     
-}
+    }
 
-ol i {
-    /* just the icons */ 
-    padding: 25px 20px;
-    color: darken($color-med-gray, 50%);
+    /* Styles the numbers */
+    li:before {
+        @include background-color($color-primary);
+        @include layer(number);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Gets rid of period after the number */
+        content: counter(item) "  "; 
+        counter-increment: item;
+        width: 24px;
+        height: 24px;
+        border-radius: 20px;
     
-}
+    }
 
+    li {             
+        /* ONLY styles the <li>, not the text or icons inside */
+        list-style-position: inside;
+        display: flex;
+        align-items: baseline;
+        margin: 5% 3%;
+
+    }
+
+    ol a {              
+        /* Styles icon and the text */
+        @include box-shadow(darken($color-med-gray, 10%));
+        @include layer(a);
+        text-decoration: none;
+        color: black;
+        width: 90%;
+        background-color: $color-light-gray;
+        border-radius: 20px;
+        padding-right: 5px;
+    }
+
+    ol i {
+        /* just the icons */ 
+        padding: 25px 20px;
+        color: darken($color-med-gray, 50%);
+        
+    }
+
+}
 /* Restaurants section rules */ 
 
-section:nth-of-type(2) {         /* shorten this code along with the how it works section, only dif is background color rule*/
+section:nth-of-type(2) {         /* maybe I can shorten this code along with the how it works section, only dif is background color rule*/
     @include background-color($color-light-gray);
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
     width: 100%;
+
+    .card {
+        @include box-shadow();
+        @include background-color(white);
+        width: 90%;
+        max-width: 400px;
+        height: 251px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border-radius: 15px;
+        margin: 15px; }
+
+        .card__img {
+            height: 174px;
+            width: 100%;
+            object-fit: cover;
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+            object-position: 50% 10%; }
+
+        .card h3 {
+            margin: 10px 0px 10px 10px;
+        }
+
+
+        .card p {
+            margin: 0px 0px 10px 10px; }
 }
 
-.card {
-    @include box-shadow();
-    @include background-color(white);
-    width: 90%;
-    max-width: 400px;
-    height: 251px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    border-radius: 15px;
-    margin: 15px;
-    }
 
 
-    .card__img {
-        height: 174px;
-        width: 100%;
-        object-fit: cover;
-        border-top-right-radius: 15px;
-        border-top-left-radius: 15px;
-        object-position: 50% 10%; }
-    
-
-    .card h3 {
-        margin: 10px 0px 10px 10px;
-    }
-
-
-    .card p {
-        margin: 0px 0px 10px 10px;
-    }
 
 footer {
-@include background-color(#282828);
-width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-padding: 8% 0% 10% 5%;
+    @include footer;
+    @include background-color(#282828);
 }
+    footer a {
+        @include footer-a;
+    }
 
-footer > a {
-    padding: 7px;
-    width: 90%;
-}
+    footer i {
+        @include footer-i;
+    }
 
-footer i {
-    padding-right: 7px;
-}
-
-footer img {
-    /* Changes color of logo from black to white */
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
-    width: 100px;
-    padding-bottom: 14px;
-}
+    footer img {
+        @include footer-logo;
+    }
 
 
 

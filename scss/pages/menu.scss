@@ -1,0 +1,135 @@
+@import "../utils/variables";
+@import "../utils/functions";
+@import "../utils/mixins";
+
+@import "../base/base";
+@import "../base/typography";
+
+@import "../components/_buttons";
+
+.fa-arrow-left {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    color: black;
+}
+
+.logo {
+    @include logo;
+}
+
+body {
+    @include flex-column-center;
+}
+
+main {
+    background-color: $color-light-gray;
+    width: 100%;
+    @include flex-column-center;
+    z-index: 20000;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    position: relative;
+    top: -40px;
+}
+
+    .menu-img {
+        width: 100%;
+        object-fit: cover;
+        z-index: 1;
+        height: 282px;
+    }
+
+
+
+    .menu-header {
+        width: 93%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 40px 0px 0px 0px;
+   
+      
+
+        & i {
+            margin-right: 20px;
+  
+        }
+    }
+
+
+.section {
+    width: 100%;
+    @include flex-column-center;
+
+    &__h3 {
+        align-self: flex-start;
+        margin-left: 4%;
+        font-weight: lighter;
+        margin-top: 30px;
+    }
+
+    hr {
+        border: none;
+        height: 3px;
+        width: 48px;
+        background-color: $color-tertiary;
+        align-self: flex-start;
+        margin: 1% 0px 2% 4%;
+    }
+
+    .dish {
+        @include box-shadow;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 95%;
+        background-color: #ffffff;
+        min-height: 68px;
+        height: fit-content;
+        border-radius: 20px;
+        padding: 10px 13px;
+        margin: 5px;
+
+
+        &__p-and-price {
+            width: 98%;
+            display: flex;
+            justify-content: space-between;
+         
+        }
+        
+        &__p {
+            max-width: 80%;
+            font-weight: lighter;
+        }
+
+        &__price {
+            font-weight: bold;
+        }
+    }
+
+}
+
+
+.button {
+    @include button;
+
+}
+
+
+footer {
+    @include footer;
+    @include background-color(#282828);
+}
+    footer a {
+        @include footer-a;
+    }
+
+    footer i {
+        @include footer-i;
+    }
+
+    footer img {
+        @include footer-logo;
+    }

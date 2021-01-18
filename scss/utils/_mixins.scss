@@ -6,6 +6,14 @@
     }
     
 
+// Logo mixin 
+@mixin logo {
+    width: 175px;
+    background-color: #ffffff;  
+    padding: 25px 0px 15px 0px;
+}
+
+
 // Use this mixin to access set-text-color function
 @mixin background-color($bg-color){            
     background-color: $bg-color;                
@@ -25,4 +33,47 @@
 // z-indexes mixin
 @mixin layer($layer-name) {
     z-index: map-get($layers, $layer-name);
+}
+
+@mixin button {
+    @include box-shadow();
+    border-radius: 25px;
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    background-image: linear-gradient(#FF79DA, #9356DC); /* will be "on top", if browser supports it */
+    font-family: sans-serif;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 30px 0px 55px 0px;
+    color: white;
+    font-size: 16px;
+    min-width: 200px;
+}
+
+@mixin footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 8% 0% 10% 5%; 
+}
+@mixin footer-logo {
+    // Width, padding and color of the image 
+    width: 100px;
+    padding-bottom: 14px;
+    /* Changes color of logo from black to white */
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
+}
+
+@mixin footer-a {
+    padding: 7px;
+    width: 90%;
+}
+
+@mixin footer-i {
+    padding-right: 7px;
 }
