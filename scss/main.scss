@@ -9,7 +9,6 @@
 
 
 
-
 // z-indexes map
 $layers: (
     a: 1,
@@ -24,7 +23,8 @@ $layers: (
     width: 100%;
 
     .logo {
-    @include logo
+        @include logo(30px);
+     
     }
 
     &__paragraph {
@@ -86,12 +86,13 @@ section:nth-of-type(1) {
     justify-content: space-around;
     align-items: center;
     width: 100%;
+
   
     ol {
         width: 98%;
         counter-reset: item;
         list-style-type: none;
-    
+      
     }
 
     /* Styles the numbers */
@@ -107,6 +108,8 @@ section:nth-of-type(1) {
         width: 24px;
         height: 24px;
         border-radius: 20px;
+        position: relative;
+        left: 10px;
     
     }
 
@@ -129,12 +132,16 @@ section:nth-of-type(1) {
         background-color: $color-light-gray;
         border-radius: 20px;
         padding-right: 5px;
+
+      
+        
     }
 
     ol i {
         /* just the icons */ 
         padding: 25px 20px;
         color: darken($color-med-gray, 50%);
+        
         
     }
 
@@ -149,11 +156,18 @@ section:nth-of-type(2) {         /* maybe I can shorten this code along with the
     align-items: center;
     width: 100%;
 
+    & a {
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 15px;
+        border-radius: 15px;
+    }
+
     .card {
         @include box-shadow();
         @include background-color(white);
-        width: 90%;
-        max-width: 400px;
+        width: 100%;
+        max-width: 500px;
         height: 251px;
         display: flex;
         justify-content: center;
@@ -161,7 +175,8 @@ section:nth-of-type(2) {         /* maybe I can shorten this code along with the
         justify-content: flex-start;
         align-items: flex-start;
         border-radius: 15px;
-        margin: 15px; }
+        
+         }
 
         .card__img {
             height: 174px;
@@ -173,6 +188,7 @@ section:nth-of-type(2) {         /* maybe I can shorten this code along with the
 
         .card h3 {
             margin: 10px 0px 10px 10px;
+            font-weight: 700;
         }
 
 

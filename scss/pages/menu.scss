@@ -15,7 +15,8 @@
 }
 
 .logo {
-    @include logo;
+    @include logo();
+ 
 }
 
 body {
@@ -26,18 +27,21 @@ main {
     background-color: $color-light-gray;
     width: 100%;
     @include flex-column-center;
-    z-index: 20000;
+    z-index: 2;
     border-top-left-radius: 35px;
     border-top-right-radius: 35px;
-    position: relative;
-    top: -40px;
+    
 }
 
     .menu-img {
+       
+        height: 200%;
         width: 100%;
         object-fit: cover;
         z-index: 1;
         height: 282px;
+        position: relative;
+        top: 30px;
     }
 
 
