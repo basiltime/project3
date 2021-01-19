@@ -24,16 +24,16 @@ body {
 
 .fa-arrow-left {
   position: absolute;
-  top: 5%;
+  top: 3%;
   left: 5%;
   color: black;
 }
 
 .logo {
   width: 175px;
-  background-color: #ffffff;
   position: relative;
   top: 15px;
+  margin-bottom: 0px;
 }
 
 body {
@@ -68,7 +68,7 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  z-index: 20000;
+  z-index: 2;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
 }
@@ -170,9 +170,14 @@ main {
           justify-content: space-between;
 }
 
+.section .dish__h4 {
+  font-weight: 500;
+  font-size: 110%;
+}
+
 .section .dish__p {
   max-width: 80%;
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 .section .dish__price {
@@ -221,17 +226,44 @@ footer {
 }
 
 footer a {
-  padding: 7px;
   width: 90%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin-bottom: 7px;
 }
 
-footer i {
-  padding-right: 7px;
+footer a:nth-of-type(1) i {
+  margin-right: 10px;
+}
+
+footer a:nth-of-type(2) i {
+  margin-right: 10px;
+  -webkit-transform: scale(0.7, 1);
+          transform: scale(0.7, 1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  overflow: hidden;
+}
+
+footer span {
+  width: 14px;
+  margin-right: 10px;
 }
 
 footer img {
   width: 100px;
-  padding-bottom: 14px;
+  padding-bottom: 20px;
   /* Changes color of logo from black to white */
   -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
           filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);

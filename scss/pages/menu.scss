@@ -9,13 +9,13 @@
 
 .fa-arrow-left {
     position: absolute;
-    top: 5%;
+    top: 3%;
     left: 5%;
     color: black;
 }
 
 .logo {
-    @include logo();
+    @include logo(0px);
  
 }
 
@@ -95,21 +95,25 @@ main {
         padding: 10px 13px;
         margin: 5px;
 
-
+       
         &__p-and-price {
             width: 98%;
             display: flex;
             justify-content: space-between;
-         
         }
         
+        &__h4 {
+            font-weight: 500;
+            font-size: 110%;
+        }
+
         &__p {
             max-width: 80%;
-            font-weight: lighter;
+            font-weight: 300;
         }
 
         &__price {
-            font-weight: bold;
+          font-weight: bold;
         }
     }
 
@@ -128,10 +132,24 @@ footer {
 }
     footer a {
         @include footer-a;
+        
     }
 
-    footer i {
+    footer a:nth-of-type(1) i {
         @include footer-i;
+        
+    }
+
+    
+
+    footer a:nth-of-type(2) i {
+        @include footer-i;
+        @include footer-i-condense;
+      
+    }
+
+    footer span {
+        @include footer-span;
     }
 
     footer img {

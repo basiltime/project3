@@ -22,6 +22,22 @@ body {
   font-family: 'Shrikhand', cursive;
 }
 
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,6 +99,17 @@ body {
   width: 100%;
 }
 
+@media (min-width: 900px) {
+  .header .header__main {
+    width: 50%;
+    height: 400px;
+    position: absolute;
+    background-color: white;
+    right: 50%;
+    top: 200px;
+  }
+}
+
 .header .header__main .header__h2 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -117,8 +144,9 @@ body {
           justify-content: center;
   font-weight: lighter;
   text-align: center;
-  width: 100%;
+  width: 85%;
   padding: 40px 0px 0px 0px;
+  font-weight: 100;
 }
 
 .button {
@@ -142,10 +170,30 @@ body {
   min-width: 200px;
 }
 
-/* Generic section element rules */
+/* Section header rules */
 section h2 {
   width: 90%;
-  padding: 40px 0px 10px 0px;
+  padding: 40px 0px 30px 0px;
+}
+
+@media (min-width: 900px) {
+  section h2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 40px 0px;
+    font-size: 25px;
+  }
 }
 
 /* How it works section rules */
@@ -168,10 +216,29 @@ section:nth-of-type(1) {
   /* Styles the numbers */
 }
 
+@media (min-width: 900px) {
+  section:nth-of-type(1) {
+    max-width: 50%;
+    height: 400px;
+    position: absolute;
+    background-color: white;
+    left: 50%;
+    top: 200px;
+  }
+}
+
 section:nth-of-type(1) ol {
   width: 98%;
+  max-width: 600px;
   counter-reset: item;
   list-style-type: none;
+}
+
+@media (min-width: 900px) {
+  section:nth-of-type(1) ol {
+    width: 100%;
+    max-width: unset;
+  }
 }
 
 section:nth-of-type(1) li:before {
@@ -190,15 +257,16 @@ section:nth-of-type(1) li:before {
   /* Gets rid of period after the number */
   content: counter(item) "  ";
   counter-increment: item;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 20px;
   position: relative;
   left: 10px;
+  font-size: smaller;
 }
 
 section:nth-of-type(1) li {
-  /* ONLY styles the <li>, not the text or icons inside */
+  /* ONLY styles the <li> container, not the text or icons inside */
   list-style-position: inside;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -206,7 +274,7 @@ section:nth-of-type(1) li {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  margin: 5% 3%;
+  margin: 0px 0px 6% 0px;
 }
 
 section:nth-of-type(1) ol a {
@@ -220,12 +288,18 @@ section:nth-of-type(1) ol a {
   background-color: #f3f3f3;
   border-radius: 20px;
   padding-right: 5px;
+  font-size: 100%;
+  font-weight: 500;
 }
 
 section:nth-of-type(1) ol i {
   /* just the icons */
-  padding: 25px 20px;
+  padding: 25px 25px;
   color: #666666;
+}
+
+section:nth-of-type(1) li:nth-of-type(1) i {
+  font-size: 120%;
 }
 
 /* Restaurants section rules */
@@ -246,13 +320,45 @@ section:nth-of-type(2) {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  padding-bottom: 50px;
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  section:nth-of-type(2) {
+    -ms-grid-row-align: center;
+        align-self: center;
+    margin-top: 700px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    border: 1px solid red;
+    padding: 10%;
+  }
+}
+
+@media (min-width: 900px) {
+  section:nth-of-type(2) h2 {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
 
 section:nth-of-type(2) a {
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   margin-bottom: 15px;
   border-radius: 15px;
+  padding: 0px 18px 5px 18px;
+}
+
+@media (min-width: 900px) {
+  section:nth-of-type(2) a {
+    border: 1px solid blue;
+    padding: unset;
+  }
 }
 
 section:nth-of-type(2) .card {
@@ -282,6 +388,20 @@ section:nth-of-type(2) .card {
   border-radius: 15px;
 }
 
+@media (min-width: 900px) {
+  section:nth-of-type(2) .card {
+    border: 1px solid blue;
+    width: unset;
+    max-width: unset;
+  }
+}
+
+@media (min-width: 900px) and (min-width: 900px) {
+  section:nth-of-type(2) .card__text {
+    margin: 4% 0% 3% 2%;
+  }
+}
+
 section:nth-of-type(2) .card__img {
   height: 174px;
   width: 100%;
@@ -300,6 +420,7 @@ section:nth-of-type(2) .card h3 {
 
 section:nth-of-type(2) .card p {
   margin: 0px 0px 10px 10px;
+  font-weight: 300;
 }
 
 footer {
@@ -323,17 +444,44 @@ footer {
 }
 
 footer a {
-  padding: 7px;
   width: 90%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin-bottom: 7px;
 }
 
-footer i {
-  padding-right: 7px;
+footer a:nth-of-type(1) i {
+  margin-right: 10px;
+}
+
+footer a:nth-of-type(2) i {
+  margin-right: 10px;
+  -webkit-transform: scale(0.7, 1);
+          transform: scale(0.7, 1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  overflow: hidden;
+}
+
+footer span {
+  width: 14px;
+  margin-right: 10px;
 }
 
 footer img {
   width: 100px;
-  padding-bottom: 14px;
+  padding-bottom: 20px;
   /* Changes color of logo from black to white */
   -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
           filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);

@@ -16,7 +16,9 @@ $layers: (
 );
 
 
-
+main {
+    @include flex-column-center;
+}
 
 .header {
     @include flex-column-center();
@@ -42,6 +44,15 @@ $layers: (
     @include flex-column-center;
     @include background-color($color-light-gray);
     width: 100%;
+    @include desktop-only {
+       width: 50%;
+       height: 400px;
+       position: absolute;
+       background-color: white;
+       right: 50%;
+       top: 200px;
+        
+    }
 
         .header__h2 {
         display: flex;
@@ -53,13 +64,14 @@ $layers: (
   
         }
     
+        // "Discover top-of-the-art restaurants...."
         .header__h3 {
         @include flex-column-center;
         font-weight: lighter;
         text-align: center;
-        width: 100%;
+        width: 85%;
         padding: 40px 0px 0px 0px;
-
+        font-weight: 100;
         } 
 
     }
@@ -70,10 +82,15 @@ $layers: (
     @include button;
 }
 
-/* Generic section element rules */ 
+/* Section header rules */ 
 
 section h2 {
     @include section-header;
+    @include desktop-only {
+        @include flex-column-center;
+        margin: 40px 0px;
+        font-size: 25px;
+    }
 
 }
 
@@ -86,12 +103,26 @@ section:nth-of-type(1) {
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    @include desktop-only {
+        max-width: 50%;
+        height: 400px;
+            position: absolute;
+            background-color: white;
+            left: 50%;
+            top: 200px;
+    }
 
   
     ol {
         width: 98%;
+        max-width: 600px;
         counter-reset: item;
         list-style-type: none;
+        @include desktop-only {
+            width: 100%;
+            max-width: unset;
+            
+        }
       
     }
 
@@ -105,20 +136,20 @@ section:nth-of-type(1) {
         /* Gets rid of period after the number */
         content: counter(item) "  "; 
         counter-increment: item;
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
         border-radius: 20px;
         position: relative;
         left: 10px;
-    
+        font-size: smaller;
     }
 
     li {             
-        /* ONLY styles the <li>, not the text or icons inside */
+        /* ONLY styles the <li> container, not the text or icons inside */
         list-style-position: inside;
         display: flex;
         align-items: baseline;
-        margin: 5% 3%;
+        margin: 0px 0px 6% 0px;
 
     }
 
@@ -132,17 +163,20 @@ section:nth-of-type(1) {
         background-color: $color-light-gray;
         border-radius: 20px;
         padding-right: 5px;
+        font-size: 100%;
+        font-weight: 500;
 
-      
-        
     }
 
     ol i {
         /* just the icons */ 
-        padding: 25px 20px;
-        color: darken($color-med-gray, 50%);
+        padding: 25px 25px;
+        color: darken($color-med-gray, 50%);  
         
-        
+    }
+
+    li:nth-of-type(1) i {
+        font-size: 120%;
     }
 
 }
@@ -155,12 +189,37 @@ section:nth-of-type(2) {         /* maybe I can shorten this code along with the
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    padding-bottom: 50px;
+    overflow: hidden;
+    @include desktop-only {
+        align-self: center;
+        margin-top: 700px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid red;
+        padding: 10%;
+    }
+
+    & h2 {
+        @include desktop-only {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+    }
 
     & a {
-        width: 90%;
+        width: 100%;
         max-width: 500px;
         margin-bottom: 15px;
         border-radius: 15px;
+        padding: 0px 18px 5px 18px;
+        @include desktop-only {
+           border: 1px solid blue;
+           padding: unset;
+            
+        }
+        
+        
     }
 
     .card {
@@ -175,6 +234,17 @@ section:nth-of-type(2) {         /* maybe I can shorten this code along with the
         justify-content: flex-start;
         align-items: flex-start;
         border-radius: 15px;
+        @include desktop-only {
+           border: 1px solid blue;
+           width: unset;
+           max-width: unset;
+           
+            &__text {
+                @include desktop-only {
+                    margin: 4% 0% 3% 2%;
+                }
+            }
+        }
         
          }
 
@@ -184,16 +254,33 @@ section:nth-of-type(2) {         /* maybe I can shorten this code along with the
             object-fit: cover;
             border-top-right-radius: 15px;
             border-top-left-radius: 15px;
-            object-position: 50% 10%; }
+            object-position: 50% 10%; 
+            @include desktop-only {
+               
+            }
+        
+        }
 
         .card h3 {
             margin: 10px 0px 10px 10px;
             font-weight: 700;
+            @include desktop-only {
+                
+                
+            }
         }
 
 
         .card p {
-            margin: 0px 0px 10px 10px; }
+            margin: 0px 0px 10px 10px;
+            font-weight: 300; 
+            @include desktop-only {
+                
+            }
+        
+        }
+
+        
 }
 
 
@@ -204,16 +291,27 @@ footer {
     @include background-color(#282828);
 }
     footer a {
-        @include footer-a;
+        @include footer-a;  
     }
 
-    footer i {
+    footer a:nth-of-type(1) i {
+        @include footer-i; 
+    }
+
+    footer a:nth-of-type(2) i {
         @include footer-i;
+        @include footer-i-condense;
+    }
+
+    footer span {
+        @include footer-span;
     }
 
     footer img {
         @include footer-logo;
     }
+
+
 
 
 
