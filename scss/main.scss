@@ -26,6 +26,10 @@ main {
 
     .logo {
         @include logo(30px);
+        @include desktop-only {
+            width: 20%;
+            padding: 10px 0px;
+        }
      
     }
 
@@ -45,12 +49,15 @@ main {
     @include background-color($color-light-gray);
     width: 100%;
     @include desktop-only {
-       width: 50%;
-       height: 400px;
+       width: 45%;
+       height: 500px;
+       border-radius: 30px;
        position: absolute;
-       background-color: white;
+       padding: 30px;
+       font-size: 20px;
        right: 50%;
        top: 200px;
+       background-color: $color-light-gray;
         
     }
 
@@ -88,7 +95,7 @@ section h2 {
     @include section-header;
     @include desktop-only {
         @include flex-column-center;
-        margin: 40px 0px;
+        margin: 20px 0px;
         font-size: 25px;
     }
 
@@ -106,22 +113,29 @@ section:nth-of-type(1) {
     @include desktop-only {
         max-width: 50%;
         height: 400px;
-            position: absolute;
-            background-color: white;
-            left: 50%;
-            top: 200px;
+        position: absolute;
+        background-color: white;
+        left: 50%;
+        top: 200px;
+        
     }
 
+    & h2 {
+        @include desktop-only {
+            margin-bottom: 0px;
+        }
+    }    
   
     ol {
         width: 98%;
         max-width: 600px;
         counter-reset: item;
         list-style-type: none;
+        
         @include desktop-only {
-            width: 100%;
+            width: 80%;
             max-width: unset;
-            
+          
         }
       
     }
@@ -142,6 +156,7 @@ section:nth-of-type(1) {
         position: relative;
         left: 10px;
         font-size: smaller;
+        
     }
 
     li {             
@@ -149,7 +164,10 @@ section:nth-of-type(1) {
         list-style-position: inside;
         display: flex;
         align-items: baseline;
+        justify-content: center;
         margin: 0px 0px 6% 0px;
+        
+       
 
     }
 
@@ -157,20 +175,25 @@ section:nth-of-type(1) {
         /* Styles icon and the text */
         @include box-shadow(darken($color-med-gray, 10%));
         @include layer(a);
+        display: flex;
+        align-items: center;
         text-decoration: none;
         color: black;
-        width: 90%;
+        width: 100%;
         background-color: $color-light-gray;
         border-radius: 20px;
         padding-right: 5px;
         font-size: 100%;
         font-weight: 500;
-
+        @include desktop-only {
+            height: 90px;
+            font-size: 18px;
+        }
     }
 
     ol i {
         /* just the icons */ 
-        padding: 25px 25px;
+        padding: 20px 20px 20px 25px;
         color: darken($color-med-gray, 50%);  
         
     }
@@ -182,7 +205,7 @@ section:nth-of-type(1) {
 }
 /* Restaurants section rules */ 
 
-section:nth-of-type(2) {         /* maybe I can shorten this code along with the how it works section, only dif is background color rule*/
+section:nth-of-type(2) {       
     @include background-color($color-light-gray);
     display: flex;
     flex-flow: row wrap;
@@ -193,17 +216,23 @@ section:nth-of-type(2) {         /* maybe I can shorten this code along with the
     overflow: hidden;
     @include desktop-only {
         align-self: center;
-        margin-top: 700px;
+        margin: 700px 0px 0px 0px;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        border: 1px solid red;
-        padding: 10%;
+        grid-gap: 7%;
+        padding: 0px 7% 200px 7%;
+
     }
 
     & h2 {
         @include desktop-only {
+            width: unset;
+            padding: unset;
+            margin-top: 7%;
             grid-column-start: 1;
             grid-column-end: 3;
+            display: flex;
+            align-items: flex-start;
         }
     }
 
@@ -214,9 +243,8 @@ section:nth-of-type(2) {         /* maybe I can shorten this code along with the
         border-radius: 15px;
         padding: 0px 18px 5px 18px;
         @include desktop-only {
-           border: 1px solid blue;
            padding: unset;
-            
+           max-width: unset;
         }
         
         
@@ -235,13 +263,12 @@ section:nth-of-type(2) {         /* maybe I can shorten this code along with the
         align-items: flex-start;
         border-radius: 15px;
         @include desktop-only {
-           border: 1px solid blue;
-           width: unset;
+           height: 300px;
+           width: 100%;
            max-width: unset;
-           
             &__text {
                 @include desktop-only {
-                    margin: 4% 0% 3% 2%;
+                   
                 }
             }
         }
@@ -256,7 +283,8 @@ section:nth-of-type(2) {         /* maybe I can shorten this code along with the
             border-top-left-radius: 15px;
             object-position: 50% 10%; 
             @include desktop-only {
-               
+                object-position: 50% 50%;
+                height: 75%;
             }
         
         }

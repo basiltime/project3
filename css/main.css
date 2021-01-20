@@ -62,6 +62,13 @@ main {
   margin-bottom: 30px;
 }
 
+@media (min-width: 900px) {
+  .header .logo {
+    width: 20%;
+    padding: 10px 0px;
+  }
+}
+
 .header__paragraph {
   background-color: #e5e5e5;
   color: black;
@@ -101,12 +108,15 @@ main {
 
 @media (min-width: 900px) {
   .header .header__main {
-    width: 50%;
-    height: 400px;
+    width: 45%;
+    height: 500px;
+    border-radius: 30px;
     position: absolute;
-    background-color: white;
+    padding: 30px;
+    font-size: 20px;
     right: 50%;
     top: 200px;
+    background-color: #f3f3f3;
   }
 }
 
@@ -191,7 +201,7 @@ section h2 {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin: 40px 0px;
+    margin: 20px 0px;
     font-size: 25px;
   }
 }
@@ -227,6 +237,12 @@ section:nth-of-type(1) {
   }
 }
 
+@media (min-width: 900px) {
+  section:nth-of-type(1) h2 {
+    margin-bottom: 0px;
+  }
+}
+
 section:nth-of-type(1) ol {
   width: 98%;
   max-width: 600px;
@@ -236,7 +252,7 @@ section:nth-of-type(1) ol {
 
 @media (min-width: 900px) {
   section:nth-of-type(1) ol {
-    width: 100%;
+    width: 80%;
     max-width: unset;
   }
 }
@@ -274,6 +290,9 @@ section:nth-of-type(1) li {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 0px 0px 6% 0px;
 }
 
@@ -282,9 +301,15 @@ section:nth-of-type(1) ol a {
   -webkit-box-shadow: 0px 3px 15px 0px #cccccc;
           box-shadow: 0px 3px 15px 0px #cccccc;
   z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
   color: black;
-  width: 90%;
+  width: 100%;
   background-color: #f3f3f3;
   border-radius: 20px;
   padding-right: 5px;
@@ -292,9 +317,16 @@ section:nth-of-type(1) ol a {
   font-weight: 500;
 }
 
+@media (min-width: 900px) {
+  section:nth-of-type(1) ol a {
+    height: 90px;
+    font-size: 18px;
+  }
+}
+
 section:nth-of-type(1) ol i {
   /* just the icons */
-  padding: 25px 25px;
+  padding: 20px 20px 20px 25px;
   color: #666666;
 }
 
@@ -304,7 +336,6 @@ section:nth-of-type(1) li:nth-of-type(1) i {
 
 /* Restaurants section rules */
 section:nth-of-type(2) {
-  /* maybe I can shorten this code along with the how it works section, only dif is background color rule*/
   background-color: #f3f3f3;
   color: black;
   display: -webkit-box;
@@ -328,21 +359,30 @@ section:nth-of-type(2) {
   section:nth-of-type(2) {
     -ms-grid-row-align: center;
         align-self: center;
-    margin-top: 700px;
+    margin: 700px 0px 0px 0px;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
-    border: 1px solid red;
-    padding: 10%;
+    grid-gap: 7%;
+    padding: 0px 7% 200px 7%;
   }
 }
 
 @media (min-width: 900px) {
   section:nth-of-type(2) h2 {
+    width: unset;
+    padding: unset;
+    margin-top: 7%;
     -ms-grid-column: 1;
         grid-column-start: 1;
     grid-column-end: 3;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 }
 
@@ -356,8 +396,8 @@ section:nth-of-type(2) a {
 
 @media (min-width: 900px) {
   section:nth-of-type(2) a {
-    border: 1px solid blue;
     padding: unset;
+    max-width: unset;
   }
 }
 
@@ -390,15 +430,9 @@ section:nth-of-type(2) .card {
 
 @media (min-width: 900px) {
   section:nth-of-type(2) .card {
-    border: 1px solid blue;
-    width: unset;
+    height: 300px;
+    width: 100%;
     max-width: unset;
-  }
-}
-
-@media (min-width: 900px) and (min-width: 900px) {
-  section:nth-of-type(2) .card__text {
-    margin: 4% 0% 3% 2%;
   }
 }
 
@@ -411,6 +445,14 @@ section:nth-of-type(2) .card__img {
   border-top-left-radius: 15px;
   -o-object-position: 50% 10%;
      object-position: 50% 10%;
+}
+
+@media (min-width: 900px) {
+  section:nth-of-type(2) .card__img {
+    -o-object-position: 50% 50%;
+       object-position: 50% 50%;
+    height: 75%;
+  }
 }
 
 section:nth-of-type(2) .card h3 {
