@@ -18,6 +18,7 @@ $layers: (
 
 main {
     @include flex-column-center;
+   
 }
 
 .header {
@@ -27,7 +28,7 @@ main {
     .logo {
         @include logo(30px);
         @include desktop-only {
-            width: 20%;
+            width: 18%;
             padding: 10px 0px;
         }
      
@@ -49,18 +50,17 @@ main {
     @include background-color($color-light-gray);
     width: 100%;
     @include desktop-only {
-       width: 45%;
-       height: 500px;
+       width: 42%;
+       max-width: 600px;
+       height: 440px;
        border-radius: 30px;
        position: absolute;
-       padding: 30px;
-       font-size: 20px;
-       right: 50%;
-       top: 200px;
+       right: 53.5%;
+       top: 230px;
        background-color: $color-light-gray;
-        
+    
     }
-
+        // "Book the menu you like"
         .header__h2 {
         display: flex;
         flex-direction: column;
@@ -68,7 +68,11 @@ main {
         align-items: center;
         width: 100%;
         padding-top: 40px;
-  
+        @include desktop-only {
+            font-size: 25px;
+        }
+
+
         }
     
         // "Discover top-of-the-art restaurants...."
@@ -89,6 +93,11 @@ main {
     @include button;
 }
 
+// Section margins
+section {
+    @include section-padding;
+}
+
 /* Section header rules */ 
 
 section h2 {
@@ -96,7 +105,7 @@ section h2 {
     @include desktop-only {
         @include flex-column-center;
         margin: 20px 0px;
-        font-size: 25px;
+       
     }
 
 }
@@ -106,42 +115,43 @@ section h2 {
 section:nth-of-type(1) {
     @include background-color(white);
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 100%;
     @include desktop-only {
-        max-width: 50%;
+        width: 42%;
+        max-width: 600px;
         height: 400px;
         position: absolute;
         background-color: white;
-        left: 50%;
-        top: 200px;
+        left: 53.5%;
+        top: 250px;
         
     }
 
     & h2 {
         @include desktop-only {
-            margin-bottom: 0px;
+          
         }
     }    
   
     ol {
-        width: 98%;
-        max-width: 600px;
+        width: 100%;
+        max-width: 500px;
         counter-reset: item;
         list-style-type: none;
-        
+        position: relative;
+        right: 6px;
         @include desktop-only {
-            width: 80%;
             max-width: unset;
-          
+            
         }
       
     }
 
     /* Styles the numbers */
-    li:before {
+    li::before {
         @include background-color($color-primary);
         @include layer(number);
         display: flex;
@@ -150,12 +160,14 @@ section:nth-of-type(1) {
         /* Gets rid of period after the number */
         content: counter(item) "  "; 
         counter-increment: item;
-        width: 22px;
-        height: 22px;
-        border-radius: 20px;
+        width: 23px;
+        height: 23px;
+        border-radius: 50%;
         position: relative;
         left: 10px;
         font-size: smaller;
+        padding: 10px;
+        
         
     }
 
@@ -163,12 +175,10 @@ section:nth-of-type(1) {
         /* ONLY styles the <li> container, not the text or icons inside */
         list-style-position: inside;
         display: flex;
-        align-items: baseline;
+        align-items: center;
         justify-content: center;
         margin: 0px 0px 6% 0px;
-        
-       
-
+  
     }
 
     ol a {              
@@ -180,29 +190,45 @@ section:nth-of-type(1) {
         text-decoration: none;
         color: black;
         width: 100%;
+        height: 75px;
         background-color: $color-light-gray;
         border-radius: 20px;
         padding-right: 5px;
         font-size: 100%;
         font-weight: 500;
         @include desktop-only {
-            height: 90px;
-            font-size: 18px;
+            width: 95%;
+            height: 80px;
+            padding-right: 30px;
         }
     }
+
+
+    // Third li element, purple background color and purple store icon
+    li:nth-of-type(3) a {
+        background-color: lighten($color-primary, 35%);
+    }
+
+    li:nth-of-type(3) i {
+        color: $color-primary;
+    }
+    
+
 
     ol i {
         /* just the icons */ 
         padding: 20px 20px 20px 25px;
-        color: darken($color-med-gray, 50%);  
-        
+        color: darken($color-med-gray, 50%);     
     }
+
+    
 
     li:nth-of-type(1) i {
         font-size: 120%;
     }
 
 }
+
 /* Restaurants section rules */ 
 
 section:nth-of-type(2) {       
@@ -212,27 +238,41 @@ section:nth-of-type(2) {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    padding-bottom: 50px;
-    overflow: hidden;
+    
+    
     @include desktop-only {
+        height: 900px;
         align-self: center;
-        margin: 700px 0px 0px 0px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 7%;
-        padding: 0px 7% 200px 7%;
+        margin: 600px 0px 0px 0px;
+        padding-bottom: 150px;
 
     }
 
+    & .card-wrapper {
+        @include desktop-only {
+        width: 1500px;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7% 7%;
+        padding: 0px 8% 0px 8%;
+
+    
+        }
+
+    }
     & h2 {
         @include desktop-only {
             width: unset;
             padding: unset;
-            margin-top: 7%;
+            margin: unset;
+            margin-top: 40px;
+            height: 0px;
             grid-column-start: 1;
             grid-column-end: 3;
             display: flex;
             align-items: flex-start;
+
         }
     }
 
@@ -245,6 +285,8 @@ section:nth-of-type(2) {
         @include desktop-only {
            padding: unset;
            max-width: unset;
+
+          
         }
         
         
@@ -266,11 +308,7 @@ section:nth-of-type(2) {
            height: 300px;
            width: 100%;
            max-width: unset;
-            &__text {
-                @include desktop-only {
-                   
-                }
-            }
+     
         }
         
          }
@@ -293,7 +331,7 @@ section:nth-of-type(2) {
             margin: 10px 0px 10px 10px;
             font-weight: 700;
             @include desktop-only {
-                
+                margin: 10px 0px 12px 10px;
                 
             }
         }
@@ -303,7 +341,7 @@ section:nth-of-type(2) {
             margin: 0px 0px 10px 10px;
             font-weight: 300; 
             @include desktop-only {
-                
+                margin: 10px 0px 12px 10px;
             }
         
         }
@@ -312,11 +350,15 @@ section:nth-of-type(2) {
 }
 
 
-
+// Footer styling
 
 footer {
     @include footer;
     @include background-color(#282828);
+    @include desktop-only {
+        
+        padding-left: 8%;
+    }
 }
     footer a {
         @include footer-a;  
@@ -337,7 +379,12 @@ footer {
 
     footer img {
         @include footer-logo;
-    }
+        @include desktop-only {
+            width: 120px;
+        
+        }
+        }
+    
 
 
 

@@ -42,6 +42,7 @@ main {
         height: 282px;
         position: relative;
         top: 30px;
+
     }
 
 
@@ -52,7 +53,10 @@ main {
         align-items: center;
         justify-content: space-between;
         margin: 40px 0px 0px 0px;
-   
+        @include desktop-only {
+            padding: 0px 12%;
+           
+        }
       
 
         & i {
@@ -65,12 +69,22 @@ main {
 .section {
     width: 100%;
     @include flex-column-center;
+    @include desktop-only {
+        padding: 0px 14%;
+        
+    }
+    
+    &__header {
+        align-self: flex-start;
+        margin-left: 3%;
+        margin-top: 30px;
+    
+    }
 
     &__h3 {
-        align-self: flex-start;
-        margin-left: 4%;
         font-weight: lighter;
         margin-top: 30px;
+
     }
 
     hr {
@@ -78,8 +92,7 @@ main {
         height: 3px;
         width: 48px;
         background-color: $color-tertiary;
-        align-self: flex-start;
-        margin: 1% 0px 2% 4%;
+        margin: 7px 0px 15px 0px;
     }
 
     .dish {
@@ -94,6 +107,10 @@ main {
         border-radius: 20px;
         padding: 10px 13px;
         margin: 5px;
+        @include desktop-only {
+           
+        }
+        
 
        
         &__p-and-price {
@@ -129,6 +146,10 @@ main {
 footer {
     @include footer;
     @include background-color(#282828);
+    @include desktop-only {
+        font-size: larger;
+        padding-left: 8%;
+    }
 }
     footer a {
         @include footer-a;
