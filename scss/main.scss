@@ -91,7 +91,13 @@ main {
 
 .button {
     @include button;
+
+    &:hover {
+        @include button-hover;
+    }
 }
+
+
 
 // Section margins
 section {

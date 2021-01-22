@@ -220,6 +220,13 @@ main {
   min-width: 200px;
 }
 
+.button:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff88de), to(#9b63df));
+  background-image: linear-gradient(#ff88de, #9b63df);
+  -webkit-box-shadow: 0px 3px 15px 0px #b2b2b2;
+          box-shadow: 0px 3px 15px 0px #b2b2b2;
+}
+
 footer {
   width: 100%;
   display: -webkit-box;

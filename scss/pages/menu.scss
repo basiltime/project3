@@ -140,7 +140,12 @@ main {
 .button {
     @include button;
 
+    &:hover {
+        @include button-hover;
+    }
+
 }
+
 
 
 footer {
