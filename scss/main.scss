@@ -92,9 +92,7 @@ main {
 .button {
     @include button;
 
-    &:hover {
-        @include button-hover;
-    }
+    
 }
 
 
@@ -314,10 +312,11 @@ section:nth-of-type(2) {
            height: 300px;
            width: 100%;
            max-width: unset;
-     
         }
         
-         }
+       
+
+       
 
         .card__img {
             height: 174px;
@@ -349,11 +348,79 @@ section:nth-of-type(2) {
             @include desktop-only {
                 margin: 10px 0px 12px 10px;
             }
-        
+
         }
+      
+    }
+
+}
+
+
+
+
+.heart {
+    position: relative;
+    left: 90%;
+    bottom: 15px;
+    font-size: 30px;
+    
+     
+
+    &::before {
+        font-family: "Font Awesome 5 Free";
+        content: "\f004";
+        font-weight: 400;
+        display: inline-block;
+        z-index: 2;
+        position: relative;
+        
+        
+    }
+
+    &:hover {
+        &::before {
+            opacity: 0;
+            transition: opacity 0s ease-out;
+
+        }
+        &::after {
+            opacity: 1;
+            transition: all .6s;
+            transition-timing-function: cubic-bezier(.75,.15,.08,.14);
+        }
+    
+    }
+
+    &::after {
+        
+        font-family: "Font Awesome 5 Free";
+        content: "\f004";
+        font-weight: 900;
+        display: inline-block;
+        z-index: 1;
+        opacity: 0; 
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgb(147,86,220);
+        background: linear-gradient(169deg, rgba(147,86,220,1) 12%, rgba(255,121,218,1) 56%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+
+    }      
+}
+  
 
         
-}
+        
+
+
+
+    
+
 
 
 // Footer styling
@@ -362,10 +429,9 @@ footer {
     @include footer;
     @include background-color(#282828);
     @include desktop-only {
-        
         padding-left: 8%;
     }
-}
+
     footer a {
         @include footer-a;  
     }
@@ -393,8 +459,8 @@ footer {
     
 
 
-
-
+    }
+    
 
 
 

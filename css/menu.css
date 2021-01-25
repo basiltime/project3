@@ -158,12 +158,9 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 95%;
   background-color: #ffffff;
   min-height: 68px;
@@ -171,32 +168,92 @@ main {
   height: -moz-fit-content;
   height: fit-content;
   border-radius: 20px;
-  padding: 10px 13px;
   margin: 5px;
+  overflow: hidden;
 }
 
-.section .dish__p-and-price {
-  width: 98%;
+.section .dish:hover .dish__price-and-checkmark {
+  -webkit-transform: translateX(-65px);
+          transform: translateX(-65px);
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms;
+}
+
+.section .dish:hover div > i {
+  -webkit-transform: rotate(1turn);
+          transform: rotate(1turn);
+  -webkit-transition: -webkit-transform 400ms ease-in-out;
+  transition: -webkit-transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
+  -webkit-transition-duration: 400ms;
+          transition-duration: 400ms;
+}
+
+.section .dish__name-and-description {
+  height: 68px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 10px 10px;
 }
 
-.section .dish__h4 {
+.section .dish h4 {
   font-weight: 500;
   font-size: 110%;
 }
 
-.section .dish__p {
-  max-width: 80%;
+.section .dish p {
   font-weight: 300;
 }
 
-.section .dish__price {
+.section .dish__price-and-checkmark {
   font-weight: bold;
+  position: relative;
+  left: 65px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+}
+
+.section .dish__price-and-checkmark div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 65px;
+  height: 100%;
+  font-size: 22px;
+  background-color: #99E2D0;
+  color: white;
+}
+
+.section .dish__price-and-checkmark p {
+  font-weight: 500;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding-right: 25px;
+  padding-bottom: 10px;
 }
 
 .button {
@@ -220,11 +277,26 @@ main {
   min-width: 200px;
 }
 
+.button:focus {
+  outline-style: unset;
+}
+
 .button:hover {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#ff88de), to(#9b63df));
   background-image: linear-gradient(#ff88de, #9b63df);
   -webkit-box-shadow: 0px 3px 15px 0px #b2b2b2;
           box-shadow: 0px 3px 15px 0px #b2b2b2;
+}
+
+.button:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff88de), to(#9b63df));
+  background-image: linear-gradient(#ff88de, #9b63df);
+  -webkit-box-shadow: 0px 3px 15px 0px #b2b2b2;
+          box-shadow: 0px 3px 15px 0px #b2b2b2;
+}
+
+.button:active {
+  border: none;
 }
 
 footer {

@@ -70,6 +70,13 @@
     color: white;
     font-size: 16px;
     min-width: 200px;
+    &:focus {
+        // Gets rid of default 
+        outline-style: unset;
+    }
+    &:hover {
+        @include button-hover;
+    }
 }
 
 @mixin button-hover {
@@ -84,6 +91,8 @@
     justify-content: center;
     align-items: flex-start;
     padding: 8% 0% 10% 5%; 
+   
+    
 }
 @mixin footer-logo {
     // Width, padding and color of the image 

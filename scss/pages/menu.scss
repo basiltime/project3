@@ -98,39 +98,82 @@ main {
     .dish {
         @include box-shadow;
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-between;
         width: 95%;
         background-color: #ffffff;
         min-height: 68px;
         height: fit-content;
         border-radius: 20px;
-        padding: 10px 13px;
         margin: 5px;
-        @include desktop-only {
-           
-        }
-        
+        overflow: hidden;
 
-       
-        &__p-and-price {
-            width: 98%;
-            display: flex;
-            justify-content: space-between;
+        &:hover .dish__price-and-checkmark {
+            
+            transform: translateX(-65px);
+            transition-duration: 500ms;
+  
+        }
+
+        &:hover div > i {
+            transform: rotate(1turn);
+            transition: transform 400ms ease-in-out;
+            transition-duration: 400ms;
         }
         
-        &__h4 {
+        &__name-and-description {
+            height: 68px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px 10px;
+        }
+
+        & h4 {
             font-weight: 500;
             font-size: 110%;
+          
         }
 
-        &__p {
-            max-width: 80%;
+        & p {
             font-weight: 300;
+           
         }
 
-        &__price {
-          font-weight: bold;
+
+
+        &__price-and-checkmark {
+         
+          font-weight: bold;    
+          position: relative;
+          left: 65px;
+          display:  flex;
+          align-items: center;
+          background-color: white;
+
+          // icon
+          & div {
+            @include flex-column-center;
+            width: 65px;
+            height: 100%;
+            font-size: 22px;
+            background-color: $color-tertiary;
+            color: white;
+
+
+          }
+
+          & p {
+              font-weight: 500;
+              align-self: flex-end;
+              padding-right: 25px;
+              padding-bottom: 10px;
+          }
+
+          
+          
+
+         
+
         }
     }
 
@@ -142,6 +185,10 @@ main {
 
     &:hover {
         @include button-hover;
+    }
+    
+    &:active {
+        border: none;
     }
 
 }
