@@ -1,0 +1,324 @@
+// Section margins
+section {
+    @include section-padding;
+}
+
+/* Section header rules */ 
+
+section h2 {
+    @include section-header;
+    @include desktop-only {
+        @include flex-column-center;
+        margin: 20px 0px;
+       
+    }
+
+}
+
+/* How it works section rules */ 
+
+section:nth-of-type(1) {
+    @include background-color(white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    @include desktop-only {
+        width: 42%;
+        max-width: 600px;
+        height: 400px;
+        position: absolute;
+        background-color: white;
+        left: 53.5%;
+        top: 250px;
+        
+    }
+
+    & h2 {
+        @include desktop-only {
+          
+        }
+    }    
+  
+    ol {
+        width: 100%;
+        max-width: 500px;
+        counter-reset: item;
+        list-style-type: none;
+        position: relative;
+        right: 6px;
+        @include desktop-only {
+            max-width: unset;
+            
+        }
+      
+    }
+
+    /* Styles the numbers */
+    li::before {
+        @include background-color($color-primary);
+        @include layer(number);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Gets rid of period after the number */
+        content: counter(item) "  "; 
+        counter-increment: item;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        position: relative;
+        left: 10px;
+        font-size: smaller;
+        padding: 9px;
+        
+        
+    }
+
+    li {             
+        /* ONLY styles the <li> container, not the text or icons inside */
+        list-style-position: inside;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px 0px 6% 0px;
+  
+    }
+
+    ol a {              
+        /* Styles icon and the text */
+        @include box-shadow(darken($color-med-gray, 10%));
+        @include layer(a);
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        width: 100%;
+        height: 75px;
+        background-color: $color-light-gray;
+        border-radius: 20px;
+        padding-right: 5px;
+        font-size: 100%;
+        font-weight: 500;
+        @include desktop-only {
+            width: 95%;
+            height: 80px;
+            padding-right: 30px;
+        }
+    }
+
+
+    // Third li element, purple background color and purple store icon
+    li:nth-of-type(3) a {
+        background-color: lighten($color-primary, 35%);
+    }
+
+    li:nth-of-type(3) i {
+        color: $color-primary;
+    }
+    
+
+
+    ol i {
+        /* just the icons */ 
+        padding: 20px 20px 20px 25px;
+        color: darken($color-med-gray, 50%);     
+    }
+
+    
+
+    li:nth-of-type(1) i {
+        font-size: 120%;
+    }
+
+}
+
+/* Restaurants section rules */ 
+
+section:nth-of-type(2) {       
+    @include background-color($color-light-gray);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    
+    
+    @include desktop-only {
+        height: 900px;
+        align-self: center;
+        margin: 600px 0px 0px 0px;
+        padding-bottom: 150px;
+
+    }
+
+    & .card-wrapper {
+        @include desktop-only {
+        width: 1500px;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7% 7%;
+        padding: 0px 8% 0px 8%;
+
+    
+        }
+
+    }
+    & h2 {
+        @include desktop-only {
+            width: unset;
+            padding: unset;
+            margin: unset;
+            margin-top: 40px;
+            height: 0px;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            display: flex;
+            align-items: flex-start;
+
+        }
+    }
+
+    & a {
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 15px;
+        border-radius: 15px;
+        padding: 0px 18px 5px 18px;
+        @include desktop-only {
+           padding: unset;
+           max-width: unset;
+
+          
+        }
+        
+        
+    }
+
+    .card {
+        @include box-shadow();
+        @include background-color(white);
+        width: 100%;
+        max-width: 500px;
+        height: 251px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border-radius: 15px;
+        @include desktop-only {
+           height: 300px;
+           width: 100%;
+           max-width: unset;
+        }
+        
+       
+
+        .card__img {
+            height: 174px;
+            width: 100%;
+            object-fit: cover;
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+            object-position: 50% 10%; 
+            @include desktop-only {
+                object-position: 50% 50%;
+                height: 75%;
+            }
+        
+        }
+
+        .card__h3 {
+            margin: 10px 0px 12px 10px;
+            font-weight: 700;
+            @include desktop-only {
+                margin: 10px 0px 0px 10px;
+                
+            }
+        }
+
+
+        .card__p {
+            margin-left: 10px;
+            font-weight: 300; 
+            @include desktop-only {
+                margin: 10px 0px 12px 10px;
+            }
+
+        }
+      
+        .card__text {
+          
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start;
+            
+            
+        }
+    }
+
+}
+
+
+
+
+.heart {
+
+    position: relative;
+    left: 85%;
+    bottom: 17%;
+    font-size: 30px;
+    @include desktop-only {
+        bottom: 19%;
+    }
+
+    &::before {
+  
+        font-family: "Font Awesome 5 Free";
+        content: "\f004";
+        font-weight: 400;
+        display: inline-block;
+        z-index: 2;
+        position: relative;
+        padding: 5px;
+        
+    }
+
+    &:hover {
+        &::before {
+            opacity: 0;
+            transition: opacity 0s ease-out;
+
+        }
+        &::after {
+            opacity: 1;
+            transition: all .6s;
+            transition-timing-function: cubic-bezier(.49,.42,.54,.96);
+        }
+    
+    }
+
+    &::after {
+        font-family: "Font Awesome 5 Free";
+        content: "\f004";
+        font-weight: 900;
+        display: inline-block;
+        z-index: 1;
+        opacity: 0; 
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgb(147,86,220);
+        background: linear-gradient(169deg, rgba(147,86,220,1) 12%, rgba(255,121,218,1) 56%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        padding: 5px;
+
+    }      
+}

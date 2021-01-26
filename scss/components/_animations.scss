@@ -1,0 +1,157 @@
+
+@keyframes loading-spinner {
+    from {
+    opacity: 1;
+    transform: rotate(.33turn);
+    
+    }
+
+    to {
+        opacity: 1;
+        display: none;   
+    }
+}
+
+@keyframes anchor-spinner {
+    from {
+        opacity: 1;
+        transform: rotate(360deg)
+    }
+
+    to {
+        opacity: 1;
+        display: none;
+    }
+}
+
+
+#loading-spinner {
+    opacity: 1; //opacity must be 0 for get rid of it after animation finishes
+    position: absolute;
+    margin-left: 50%;
+    margin-right: 50%;
+    top: 150px;
+    z-index: 9;
+   
+ 
+    & .dot-one { 
+        padding: 5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $color-primary;
+        position: relative;
+        top: 53px;
+        left: 3px;
+    }
+    & .dot-two {
+        padding: 5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $color-secondary;
+        position: relative;
+        top: 60px;
+        left: 15px;
+        
+    }
+    & .dot-three {
+        padding: 5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $color-tertiary;
+        position: relative;
+        top: 64px;
+        left: 28px;
+        
+    }
+    & .dot-four {
+        padding: 5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $color-primary;
+        position: relative;
+        top: 60px;
+        left: 42px;
+    }
+    & .dot-five {
+        padding: 5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $color-secondary;
+        position: relative;
+        top: 53px;
+        left: 54px;
+        
+    }
+}
+
+
+@keyframes loading-spinner-background {
+    from {
+        background-color: $color-light-gray;
+    }
+
+    to {  
+        display: none;
+    }
+
+}
+
+#loading-spinner-background {
+    height: 100%;
+    width: 100%;
+    animation-name: loading-spinner-background;
+    animation-fill-mode: backwards;
+    animation-delay: 3.4s;
+    z-index: 6;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+
+}
+
+@mixin dot-anchor($animation-delay) {
+    opacity: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    animation-name: anchor-spinner;
+    animation-timing-function: cubic-bezier(.67,.33,.27,.61);
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+    animation-delay: $animation-delay;
+    animation-iteration-count: 3;
+    transform-origin: center;
+    position: absolute;
+    top: 0px;
+    
+   
+}
+
+.dot-anchor:nth-of-type(1) {
+   @include dot-anchor(.27s)
+    
+}
+
+.dot-anchor:nth-of-type(2) {
+    @include dot-anchor(.23s)
+    
+}
+
+.dot-anchor:nth-of-type(3) {
+    @include dot-anchor(.2s)
+}
+
+.dot-anchor:nth-of-type(4) {
+    @include dot-anchor(.15s)
+}
+
+.dot-anchor:nth-of-type(5) {
+    @include dot-anchor(.1s)
+}

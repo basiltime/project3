@@ -6,6 +6,7 @@
 @import "../base/typography";
 
 @import "../components/_buttons";
+@import "../components/animations";
 
 .fa-arrow-left {
     position: absolute;
@@ -61,7 +62,9 @@ main {
 
         & i {
             margin-right: 20px;
-  
+            font-weight: 400;
+            font-size: 30px;
+            
         }
     }
 
