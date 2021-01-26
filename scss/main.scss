@@ -15,6 +15,76 @@ $layers: (
     number: 2,
 );
 
+@keyframes loading-spinner {
+    from {
+    opacity: 1;
+    transform: rotate(15turn);
+    
+    }
+
+    to {
+        opacity: 1;
+        display: none;   
+    }
+}
+
+@keyframes loading-spinner-background {
+    from {
+        background-color: $color-light-gray;
+    }
+
+    to {  
+        display: none;
+    }
+
+   
+}
+
+#loading-spinner {
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 40%;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    background: rgb(255,121,218);
+    background: linear-gradient(169deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%);
+    z-index: 9;
+    animation-name: loading-spinner;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+  
+    
+}
+
+#loading-spinner-background {
+    
+    height: 100%;
+    width: 100%;
+    animation-name: loading-spinner-background;
+    animation-fill-mode: backwards;
+    animation-delay: 2s;
+    z-index: 6;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 main {
     @include flex-column-center;
@@ -386,13 +456,12 @@ section:nth-of-type(2) {
         &::after {
             opacity: 1;
             transition: all .6s;
-            transition-timing-function: cubic-bezier(.75,.15,.08,.14);
+            transition-timing-function: cubic-bezier(.49,.42,.54,.96);
         }
     
     }
 
     &::after {
-        
         font-family: "Font Awesome 5 Free";
         content: "\f004";
         font-weight: 900;

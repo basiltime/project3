@@ -23,6 +23,85 @@ body {
   font-family: 'Shrikhand', cursive;
 }
 
+@-webkit-keyframes loading-spinner {
+  from {
+    opacity: 1;
+    -webkit-transform: rotate(15turn);
+            transform: rotate(15turn);
+  }
+  to {
+    opacity: 1;
+    display: none;
+  }
+}
+
+@keyframes loading-spinner {
+  from {
+    opacity: 1;
+    -webkit-transform: rotate(15turn);
+            transform: rotate(15turn);
+  }
+  to {
+    opacity: 1;
+    display: none;
+  }
+}
+
+@-webkit-keyframes loading-spinner-background {
+  from {
+    background-color: #f3f3f3;
+  }
+  to {
+    display: none;
+  }
+}
+
+@keyframes loading-spinner-background {
+  from {
+    background-color: #f3f3f3;
+  }
+  to {
+    display: none;
+  }
+}
+
+#loading-spinner {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  top: 40%;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  background: #ff79da;
+  background: linear-gradient(169deg, #ff79da 0%, #9356dc 100%);
+  z-index: 9;
+  -webkit-animation-name: loading-spinner;
+          animation-name: loading-spinner;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+
+#loading-spinner-background {
+  height: 100%;
+  width: 100%;
+  -webkit-animation-name: loading-spinner-background;
+          animation-name: loading-spinner-background;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  z-index: 6;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+}
+
 main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -543,8 +622,8 @@ section:nth-of-type(2) .card .card p {
   opacity: 1;
   -webkit-transition: all .6s;
   transition: all .6s;
-  -webkit-transition-timing-function: cubic-bezier(0.75, 0.15, 0.08, 0.14);
-          transition-timing-function: cubic-bezier(0.75, 0.15, 0.08, 0.14);
+  -webkit-transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+          transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
 }
 
 .heart::after {
