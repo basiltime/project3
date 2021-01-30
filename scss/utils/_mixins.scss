@@ -53,36 +53,40 @@
 }
 
 
+@mixin button-hover {
+    background-image: linear-gradient(175deg, lighten($color-secondary, 1.5%) 0%, lighten($color-primary, 1%) 100%);
+    @include box-shadow(darken($color-med-gray, 35%));
+}
 
 @mixin button {
-    @include box-shadow();
+    @include box-shadow(darken($color-med-gray, 30%));
     border-radius: 25px;
     display: inline-block;
     border: none;
     padding: 1rem 2rem;
     text-decoration: none;
-    background-image: linear-gradient($color-secondary, $color-primary); /* will be "on top", if browser supports it */
+    background-image: linear-gradient(175deg, $color-secondary 0%, $color-primary 100%); /* will be "on top", if browser supports it */
     font-family: sans-serif;
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: none;
     margin: 30px 0px 55px 0px;
     color: white;
+    text-shadow: magenta;
     font-size: 16px;
     min-width: 200px;
+    font-weight: 500;
     &:focus {
         // Gets rid of default 
-        outline-style: unset;
+        outline-style: unset;  
     }
     &:hover {
         @include button-hover;
     }
 }
 
-@mixin button-hover {
-    background-image: linear-gradient(lighten($color-secondary, 3%), lighten($color-primary, 3%));
-    @include box-shadow(darken($color-med-gray, 20%))
-}
+
+
 
 @mixin footer {
     width: 100%;
@@ -90,10 +94,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 8% 0% 10% 5%; 
-   
-    
+    padding: 8% 0% 10% 5%;   
 }
+
 @mixin footer-logo {
     // Width, padding and color of the image 
     width: 100px;

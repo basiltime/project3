@@ -28,10 +28,14 @@
 #loading-spinner {
     opacity: 1; //opacity must be 0 for get rid of it after animation finishes
     position: absolute;
-    margin-left: 50%;
-    margin-right: 50%;
-    top: 150px;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    top: 40%;
     z-index: 9;
+    width: 100px;
+    height: 100px;
+    @include flex-column-center;
    
  
     & .dot-one { 
@@ -92,30 +96,40 @@
 
 @keyframes loading-spinner-background {
     from {
-        background-color: $color-light-gray;
+       
+    opacity: 1;
+    z-index: 8;
     }
 
     to {  
-        display: none;
+    z-index: 8;
+    opacity: 1;
+    
+       
     }
-
 }
 
+//Gray background div
 #loading-spinner-background {
-    height: 100%;
+
+    
+    opacity: 0;
+    z-index: -9999;
+    height: 2300px;
     width: 100%;
-    animation-name: loading-spinner-background;
-    animation-fill-mode: backwards;
-    animation-delay: 3.4s;
-    z-index: 6;
+    background-color: $color-light-gray;
     position: absolute;
     top: 0px;
     bottom: 0px;
-    right: 0px;
     left: 0px;
-
+    right: 0px;
+    animation-fill-mode: backwards;
+    animation: loading-spinner-background;
+    animation-duration: 3.5s;
 }
 
+
+// Mixin for the dot animations (customized by the $animation-delay argument)
 @mixin dot-anchor($animation-delay) {
     opacity: 0;
     width: 70px;
@@ -128,20 +142,21 @@
     animation-delay: $animation-delay;
     animation-iteration-count: 3;
     transform-origin: center;
-    position: absolute;
-    top: 0px;
+    position: absolute; 
+
     
    
 }
 
+
+// Each individual dot anchor with it's own animation delay 
 .dot-anchor:nth-of-type(1) {
    @include dot-anchor(.27s)
     
 }
 
 .dot-anchor:nth-of-type(2) {
-    @include dot-anchor(.23s)
-    
+    @include dot-anchor(.23s)  
 }
 
 .dot-anchor:nth-of-type(3) {
