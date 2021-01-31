@@ -201,8 +201,6 @@ body {
   right: 0px;
   -webkit-animation-fill-mode: backwards;
           animation-fill-mode: backwards;
-  -webkit-animation: loading-spinner-background;
-          animation: loading-spinner-background;
   -webkit-animation-duration: 3.5s;
           animation-duration: 3.5s;
 }
@@ -212,8 +210,6 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  -webkit-animation-name: anchor-spinner;
-          animation-name: anchor-spinner;
   -webkit-animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
           animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
   -webkit-animation-duration: 1s;
@@ -234,8 +230,6 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  -webkit-animation-name: anchor-spinner;
-          animation-name: anchor-spinner;
   -webkit-animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
           animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
   -webkit-animation-duration: 1s;
@@ -256,8 +250,6 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  -webkit-animation-name: anchor-spinner;
-          animation-name: anchor-spinner;
   -webkit-animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
           animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
   -webkit-animation-duration: 1s;
@@ -278,8 +270,6 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  -webkit-animation-name: anchor-spinner;
-          animation-name: anchor-spinner;
   -webkit-animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
           animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
   -webkit-animation-duration: 1s;
@@ -300,8 +290,6 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  -webkit-animation-name: anchor-spinner;
-          animation-name: anchor-spinner;
   -webkit-animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
           animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
   -webkit-animation-duration: 1s;
@@ -406,10 +394,73 @@ main {
   margin-left: 10px;
 }
 
-.menu-header i {
-  margin-right: 20px;
+.menu-header .heart {
   font-weight: 400;
   font-size: 30px;
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  font-size: 30px;
+  width: 40px;
+}
+
+.menu-header .heart::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f004";
+  font-weight: 400;
+  display: inline-block;
+  z-index: 2;
+  position: relative;
+  padding: 5px;
+}
+
+.menu-header .heart:active::before {
+  opacity: 0;
+  -webkit-transition: opacity 0s ease-out;
+  transition: opacity 0s ease-out;
+}
+
+.menu-header .heart:active::after {
+  opacity: 1;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  -webkit-transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+          transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+}
+
+@media (min-width: 800px) {
+  .menu-header .heart:hover::before {
+    opacity: 0;
+    -webkit-transition: opacity 0s ease-out;
+    transition: opacity 0s ease-out;
+  }
+  .menu-header .heart:hover::after {
+    opacity: 1;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+            transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+  }
+}
+
+.menu-header .heart::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f004";
+  font-weight: 900;
+  display: inline-block;
+  z-index: 1;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #9356dc;
+  background: linear-gradient(169deg, #9356dc 12%, #ff79da 56%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding: 5px;
 }
 
 .section {
@@ -459,84 +510,19 @@ main {
 .section .dish {
   -webkit-box-shadow: 0px 3px 15px 0px #e5e5e5;
           box-shadow: 0px 3px 15px 0px #e5e5e5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   width: 95%;
   background-color: #ffffff;
-  min-height: 68px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  overflow: hidden;
+  height: 68px;
+  overflow-x: hidden;
   border-radius: 20px;
   margin: 5px;
   z-index: 3;
-}
-
-.section .dish:hover .dish__price-and-checkmark {
-  -webkit-transform: translateX(-65px);
-          transform: translateX(-65px);
-  -webkit-transition-duration: 650ms;
-          transition-duration: 650ms;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.section .dish:hover div > i {
-  -webkit-transform: rotate(1turn);
-          transform: rotate(1turn);
-  -webkit-transition: -webkit-transform 400ms ease-in-out;
-  transition: -webkit-transform 400ms ease-in-out;
-  transition: transform 400ms ease-in-out;
-  transition: transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
-  -webkit-transition-duration: 400ms;
-          transition-duration: 400ms;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.section .dish__name-and-description {
-  height: 68px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 10px 10px;
 }
 
-.section .dish h4 {
-  font-weight: 500;
-  font-size: 110%;
-}
-
-.section .dish p {
-  font-weight: 300;
-}
-
-.section .dish__price-and-checkmark {
-  font-weight: bold;
-  position: relative;
-  left: 65px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: white;
-}
-
-.section .dish__price-and-checkmark div {
+.section .dish__price-and-checkmark p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -550,19 +536,115 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 65px;
+  font-weight: 500;
+  padding-right: 25px;
+  padding-bottom: 10px;
+  text-overflow: unset;
+  padding-left: 5px;
+  height: 100%;
+}
+
+.section .dish:hover .dish__price-and-checkmark {
+  -webkit-transform: translateX(-65px);
+          transform: translateX(-65px);
+  -webkit-transition-duration: 650ms;
+          transition-duration: 650ms;
+  border-radius: 20px;
+  -ms-flex-preferred-size: 110px;
+      flex-basis: 110px;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  overflow: hidden;
+  font-weight: bold;
+  position: relative;
+  left: 65px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.section .dish:hover .dish__price-and-checkmark div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-preferred-size: 65px;
+      flex-basis: 65px;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   height: 100%;
   font-size: 22px;
   background-color: #99E2D0;
   color: white;
 }
 
-.section .dish__price-and-checkmark p {
+.section .dish:hover .dish__price-and-checkmark div > i {
+  -webkit-transform: rotate(1turn);
+          transform: rotate(1turn);
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms;
+  border-radius: 20px;
+}
+
+.section .dish__name-and-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px 0px 10px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  width: calc(100%-65px);
+}
+
+.section .dish h4 {
   font-weight: 500;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  padding-right: 25px;
-  padding-bottom: 10px;
+  font-size: 110%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.section .dish p {
+  font-weight: 300;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .button {

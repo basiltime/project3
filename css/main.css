@@ -201,8 +201,6 @@ body {
   right: 0px;
   -webkit-animation-fill-mode: backwards;
           animation-fill-mode: backwards;
-  -webkit-animation: loading-spinner-background;
-          animation: loading-spinner-background;
   -webkit-animation-duration: 3.5s;
           animation-duration: 3.5s;
 }
@@ -212,8 +210,6 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  -webkit-animation-name: anchor-spinner;
-          animation-name: anchor-spinner;
   -webkit-animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
           animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
   -webkit-animation-duration: 1s;
@@ -234,8 +230,6 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  -webkit-animation-name: anchor-spinner;
-          animation-name: anchor-spinner;
   -webkit-animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
           animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
   -webkit-animation-duration: 1s;
@@ -256,8 +250,6 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  -webkit-animation-name: anchor-spinner;
-          animation-name: anchor-spinner;
   -webkit-animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
           animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
   -webkit-animation-duration: 1s;
@@ -278,8 +270,6 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  -webkit-animation-name: anchor-spinner;
-          animation-name: anchor-spinner;
   -webkit-animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
           animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
   -webkit-animation-duration: 1s;
@@ -300,8 +290,6 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  -webkit-animation-name: anchor-spinner;
-          animation-name: anchor-spinner;
   -webkit-animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
           animation-timing-function: cubic-bezier(0.67, 0.33, 0.27, 0.61);
   -webkit-animation-duration: 1s;
@@ -647,15 +635,17 @@ section:nth-of-type(2) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  display: flex;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
 }
 
@@ -670,9 +660,27 @@ section:nth-of-type(2) {
   }
 }
 
+section:nth-of-type(2) .card-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 @media (min-width: 800px) {
   section:nth-of-type(2) .card-wrapper {
-    width: 1500px;
+    width: 100%;
+    max-width: 1400px;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -704,95 +712,41 @@ section:nth-of-type(2) {
   }
 }
 
-section:nth-of-type(2) a {
+.card {
+  height: 252px;
   width: 100%;
   max-width: 500px;
   margin-bottom: 15px;
   border-radius: 15px;
-  padding: 0px 18px 5px 18px;
-}
-
-@media (min-width: 800px) {
-  section:nth-of-type(2) a {
-    padding: unset;
-    max-width: unset;
-  }
-}
-
-section:nth-of-type(2) .card {
+  background-color: white;
   -webkit-box-shadow: 0px 3px 15px 0px #e5e5e5;
           box-shadow: 0px 3px 15px 0px #e5e5e5;
-  background-color: white;
-  color: black;
-  width: 100%;
-  max-width: 500px;
-  height: 251px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  border-radius: 15px;
 }
 
 @media (min-width: 800px) {
-  section:nth-of-type(2) .card {
-    height: 300px;
-    width: 100%;
+  .card {
+    padding: unset;
     max-width: unset;
+    height: 300px;
   }
 }
 
-section:nth-of-type(2) .card .card__img {
-  height: 174px;
+.card__img {
   width: 100%;
+  height: 174px;
   -o-object-fit: cover;
      object-fit: cover;
-  border-top-right-radius: 15px;
   border-top-left-radius: 15px;
-  -o-object-position: 50% 10%;
-     object-position: 50% 10%;
+  border-top-right-radius: 15px;
 }
 
 @media (min-width: 800px) {
-  section:nth-of-type(2) .card .card__img {
-    -o-object-position: 50% 50%;
-       object-position: 50% 50%;
-    height: 75%;
+  .card__img {
+    height: 222px;
   }
 }
 
-section:nth-of-type(2) .card .card__h3 {
-  margin: 10px 0px 12px 10px;
-  font-weight: 700;
-}
-
-@media (min-width: 800px) {
-  section:nth-of-type(2) .card .card__h3 {
-    margin: 10px 0px 0px 10px;
-  }
-}
-
-section:nth-of-type(2) .card .card__p {
-  margin-left: 10px;
-  font-weight: 300;
-}
-
-@media (min-width: 800px) {
-  section:nth-of-type(2) .card .card__p {
-    margin: 10px 0px 12px 10px;
-  }
-}
-
-section:nth-of-type(2) .card .card__text {
+.card__text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -800,24 +754,66 @@ section:nth-of-type(2) .card .card__text {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  width: 80%;
+  height: 70px;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  padding: 2.5% 0% 2.5% 3.5%;
+}
+
+@media (min-width: 800px) {
+  .card__text {
+    padding: 1.5% 0% 1.5% 2.5%;
+  }
+}
+
+.card a p {
+  font-weight: 200;
+}
+
+.new {
+  width: 80px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 2px;
+  color: #217460;
+  background-color: #99E2D0;
+  position: relative;
+  right: calc(-100% + 95px);
+  top: calc(-100% + 20px);
+}
+
+.card:nth-of-type(n+3) .new {
+  opacity: 0;
 }
 
 .heart {
   position: relative;
-  left: 85%;
-  bottom: 17%;
-  font-size: 30px;
-}
-
-@media (min-width: 800px) {
-  .heart {
-    bottom: 19%;
-  }
+  right: calc(-100% + 55px);
+  bottom: 90px;
+  font-size: 25px;
+  width: 40px;
 }
 
 .heart::before {
@@ -830,18 +826,33 @@ section:nth-of-type(2) .card .card__text {
   padding: 5px;
 }
 
-.heart:hover::before {
+.heart:active::before {
   opacity: 0;
   -webkit-transition: opacity 0s ease-out;
   transition: opacity 0s ease-out;
 }
 
-.heart:hover::after {
+.heart:active::after {
   opacity: 1;
-  -webkit-transition: all .6s;
-  transition: all .6s;
+  -webkit-transition: all .5s;
+  transition: all .5s;
   -webkit-transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
           transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+}
+
+@media (min-width: 800px) {
+  .heart:hover::before {
+    opacity: 0;
+    -webkit-transition: opacity 0s ease-out;
+    transition: opacity 0s ease-out;
+  }
+  .heart:hover::after {
+    opacity: 1;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+            transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+  }
 }
 
 .heart::after {

@@ -139,9 +139,7 @@ section:nth-of-type(1) {
 section:nth-of-type(2) {       
     @include background-color($color-light-gray);
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
+    @include flex-column-center;
     width: 100%;
     
     
@@ -154,8 +152,11 @@ section:nth-of-type(2) {
     }
 
     & .card-wrapper {
+        width: 100%;
+        @include flex-column-center;
         @include desktop-only {
-        width: 1500px;
+        width: 100%;
+        max-width: 1400px;
         height: fit-content;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -180,145 +181,81 @@ section:nth-of-type(2) {
 
         }
     }
+}
+
+.card {
+    height: 252px;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: white;
+    
+    @include box-shadow();
+    @include desktop-only {
+       padding: unset;
+       max-width: unset;
+       height: 300px;
+    }
+
+    &__img {
+        width: 100%;
+        height: 174px;
+        object-fit: cover;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        @include desktop-only {
+            height: 222px;
+        }
+       
+    }
+
+    &__text {
+        @include flex-column-center;
+        justify-content: space-around;
+        width: 80%;
+        height: 70px;
+        align-items: flex-start;
+        padding: 2.5% 0% 2.5% 3.5%;  
+        @include desktop-only {
+            padding: 1.5% 0% 1.5% 2.5%; 
+        }
+
+    }
 
     & a {
-        width: 100%;
-        max-width: 500px;
-        margin-bottom: 15px;
-        border-radius: 15px;
-        padding: 0px 18px 5px 18px;
-        @include desktop-only {
-           padding: unset;
-           max-width: unset;
-
-          
-        }
-        
-        
-    }
-
-    .card {
-        @include box-shadow();
-        @include background-color(white);
-        width: 100%;
-        max-width: 500px;
-        height: 251px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        border-radius: 15px;
-        @include desktop-only {
-           height: 300px;
-           width: 100%;
-           max-width: unset;
-        }
-        
-       
-
-        .card__img {
-            height: 174px;
-            width: 100%;
-            object-fit: cover;
-            border-top-right-radius: 15px;
-            border-top-left-radius: 15px;
-            object-position: 50% 10%; 
-            @include desktop-only {
-                object-position: 50% 50%;
-                height: 75%;
-            }
-        
-        }
-
-        .card__h3 {
-            margin: 10px 0px 12px 10px;
-            font-weight: 700;
-            @include desktop-only {
-                margin: 10px 0px 0px 10px;
-                
-            }
-        }
-
-
-        .card__p {
-            margin-left: 10px;
-            font-weight: 300; 
-            @include desktop-only {
-                margin: 10px 0px 12px 10px;
-            }
-
-        }
-      
-        .card__text {
-          
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: flex-start;
-            
-            
+        & p {
+            font-weight: 200;
         }
     }
 
+
+    
+}
+
+.new {
+    width: 80px;
+    height: 30px;
+    @include flex-column-center;
+    border-radius: 2px;
+    color: darken($color-tertiary, 45%);
+    background-color: $color-tertiary;
+    position: relative;
+   // Math to calculate positioning of New div:
+   // Move the div 100% to the right and then a
+   right: calc(-100% + 95px);
+   top: calc(-100% + 20px);
+}
+
+
+//Hides New divs on 3rd and 4th cards
+.card:nth-of-type(n+3) .new {
+    opacity: 0;
 }
 
 
 
 
-.heart {
-
-    position: relative;
-    left: 85%;
-    bottom: 17%;
-    font-size: 30px;
-    @include desktop-only {
-        bottom: 19%;
-    }
-
-    &::before {
-  
-        font-family: "Font Awesome 5 Free";
-        content: "\f004";
-        font-weight: 400;
-        display: inline-block;
-        z-index: 2;
-        position: relative;
-        padding: 5px;
-        
-    }
-
-    &:hover {
-        &::before {
-            opacity: 0;
-            transition: opacity 0s ease-out;
-
-        }
-        &::after {
-            opacity: 1;
-            transition: all .6s;
-            transition-timing-function: cubic-bezier(.49,.42,.54,.96);
-        }
-    
-    }
-
-    &::after {
-        font-family: "Font Awesome 5 Free";
-        content: "\f004";
-        font-weight: 900;
-        display: inline-block;
-        z-index: 1;
-        opacity: 0; 
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: rgb(147,86,220);
-        background: linear-gradient(169deg, rgba(147,86,220,1) 12%, rgba(255,121,218,1) 56%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        padding: 5px;
-
-    }      
+.heart { 
+    @include heart(calc(-100% + 55px), 90px);
 }

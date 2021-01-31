@@ -124,7 +124,7 @@
     left: 0px;
     right: 0px;
     animation-fill-mode: backwards;
-    animation: loading-spinner-background;
+    //animation: loading-spinner-background;
     animation-duration: 3.5s;
 }
 
@@ -135,7 +135,7 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    animation-name: anchor-spinner;
+    //animation-name: anchor-spinner;
     animation-timing-function: cubic-bezier(.67,.33,.27,.61);
     animation-duration: 1s;
     animation-fill-mode: backwards;
@@ -169,4 +169,83 @@
 
 .dot-anchor:nth-of-type(5) {
     @include dot-anchor(.1s)
+}
+
+
+
+
+// Heart animation //
+
+@mixin heart($position-right, $position-bottom, $font-size: 25px) {
+
+    position: relative;
+    right: $position-right; 
+    bottom: $position-bottom; 
+    font-size: $font-size; 
+    width: 40px;
+
+    &::before {
+  
+        font-family: "Font Awesome 5 Free";
+        content: "\f004";
+        font-weight: 400;
+        display: inline-block;
+        z-index: 2;
+        position: relative;
+        padding: 5px;
+        
+    }
+
+    &:active {
+        &::before {
+            opacity: 0;
+            transition: opacity 0s ease-out;
+
+        }
+        &::after {
+            opacity: 1;
+            transition: all .5s;
+            transition-timing-function: cubic-bezier(.49,.42,.54,.96);
+        }
+
+    }
+
+    @include desktop-only {
+        &:hover {
+        &::before {
+            opacity: 0;
+            transition: opacity 0s ease-out;
+
+        }
+        &::after {
+            opacity: 1;
+            transition: all .5s;
+            transition-timing-function: cubic-bezier(.49,.42,.54,.96);
+        }
+    }
+    
+}
+
+    &::after {
+        font-family: "Font Awesome 5 Free";
+        content: "\f004";
+        font-weight: 900;
+        display: inline-block;
+        z-index: 1;
+        opacity: 0; 
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // Gradient background //
+        background: rgb(147,86,220);
+        background: linear-gradient(169deg, rgba(147,86,220,1) 12%, rgba(255,121,218,1) 56%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        padding: 5px;
+        
+
+    }      
 }
