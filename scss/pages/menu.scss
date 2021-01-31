@@ -80,6 +80,10 @@ main {
 
 .section {
     width: 100%;
+    animation: menu-section-delay 1s;
+    animation-timing-function: ease-out;
+    
+  
     @include flex-column-center;
     @include desktop-only {
         max-width: 1400px;
@@ -119,11 +123,12 @@ main {
         margin: 5px;
         z-index: 3;
         display: flex;
+       
         
         // The visible price
         &__price-and-checkmark p {
             @include flex-column-center;
-            font-weight: 500;
+            font-weight: 500 !important;
             padding-right: 25px;
             padding-bottom: 10px;
             text-overflow: unset;
@@ -131,27 +136,9 @@ main {
             height: 100%;
         }
 
-        // Animation on hover- sliding tick. (makes the checkmark portion visible)
-        &:hover .dish__price-and-checkmark {
-            transform: translateX(-65px);
-            transition-duration: 650ms;
-            border-radius: 20px;
-            flex-basis: 110px;
-            flex-grow: 0;
-            flex-shrink: 0;
-            overflow: hidden;
-            font-weight: bold;    
-            position: relative;
-            left: 65px;
-            display: flex;
-            align-items: center;
-            background-color: white;
-            border-radius: 15px;
-            justify-content: left;
-
-            // styles the div containing the checkmark icon
-            & div { 
-                @include flex-column-center;
+        // The checkmark div
+        &__price-and-checkmark div {
+            @include flex-column-center;
                 flex-basis: 65px;
                 flex-grow: 0;
                 flex-shrink: 0;
@@ -159,13 +146,56 @@ main {
                 font-size: 22px;
                 background-color: $color-tertiary;
                 color: white;
+
                 & > i {
-                transform: rotate(1turn);
+                transform: rotate(-1turn);
                 transition: transform 500ms ease-in-out;
                 transition-duration: 500ms;
                 border-radius: 20px;
                 }
+        }
+
+        // Div containing the price and checkmark icon       
+        & .dish__price-and-checkmark {
+            transform: translateX(0px);
+            transition-duration: .5s;
+            border-radius: 20px;
+            width: 110px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            overflow: hidden;
+            left: 65px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 15px;
+            justify-content: left;
+            margin-left: -55px;
+        }
+
+        // Hover animations
+        &:hover {
+            
+            .dish__name-and-description {
+                margin-right: 110px;
+                transition-duration: .5s;
+                
             }
+        
+            .dish__price-and-checkmark {
+            transform: translateX(-65px);
+            transition-duration: .5s;
+            margin-left: -110px;
+  
+                // styles the div containing the checkmark icon
+                & div  > i {
+                    transform: rotate(1turn);
+                    transition: transform 500ms ease-in-out;
+                    transition-duration: 500ms;
+                    border-radius: 20px;
+                    }
+                }
            
         }
 
@@ -178,16 +208,18 @@ main {
             overflow: hidden;
             flex-grow: 1;
             flex-shrink: 1;
-            width: calc(100%-65px); // 100% width - the width of the light green animated checkmark
+            min-width: 0;
+            width: calc(100% - 65px); // 100% width - the width of the light green animated checkmark
         }
 
         & h4 {
            
             font-weight: 500;
-            font-size: 110%;
+            font-size: 110%;    
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+           
         }
 
         & p {
@@ -196,6 +228,7 @@ main {
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+            
         }
 
 
@@ -215,7 +248,18 @@ main {
     }
 
 }
+ 
+.section:nth-of-type(2) {
+    animation: menu-section-delay 1.5s;
+    animation-timing-function: ease-out;
+  
+}
 
+.section:nth-of-type(3) {
+    animation: menu-section-delay 2s;
+    animation-timing-function: ease-out;
+
+}
 
 .button {
     @include button;

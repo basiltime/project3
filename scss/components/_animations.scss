@@ -249,3 +249,55 @@
 
     }      
 }
+
+@keyframes menu-section-delay {
+  
+    
+    0%, 38% {
+        opacity: 0;
+        
+    }
+
+    37% {
+        transform: translate(0px, 7px)
+    }
+  
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+    
+}
+
+@keyframes price-and-checkmark-left {
+
+    0% {    
+    transform: translateX(0px);
+    }
+
+
+
+    100% {
+    transform: translateX(-65px)
+    }
+
+
+}
+
+@keyframes price-and-checkmark-right {
+
+    0% {    
+    transform: translateX(0px);
+    }
+
+
+
+    100% {
+    transform: translateX(65px)
+    }
+
+
+}
