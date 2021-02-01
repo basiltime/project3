@@ -72,7 +72,6 @@
     -moz-appearance: none;
     margin: 30px 0px 55px 0px;
     color: white;
-    text-shadow: magenta;
     font-size: 16px;
     min-width: 200px;
     font-weight: 500;
@@ -94,7 +93,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 8% 0% 10% 5%;   
+    padding: 8% 0% 10% 5%;
+    @include desktop-only {
+        font-size: 120%;
+        padding-left: 2%;
+        
+    }
+    
+    
 }
 
 @mixin footer-logo {
@@ -103,6 +109,9 @@
     padding-bottom: 25px;
     /* Changes color of logo from black to white */
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
+    @include desktop-only {
+        margin-left: 10%;
+    }
 }
 
 @mixin footer-a { 
@@ -112,11 +121,17 @@
     flex-direction: row;
     align-items: baseline;
     margin-bottom: 7px;
+    @include desktop-only {
+        margin-left: 10%;
+    }
 
 }
 
+
+
 @mixin footer-i {
    margin-right: 10px;
+   
 }
 
 @mixin footer-i-condense {

@@ -30,7 +30,7 @@ section:nth-of-type(1) {
         height: 400px;
         position: absolute;
         background-color: white;
-        left: 53.5%;
+        left: 51.5%;
         top: 250px;
         
     }
@@ -257,5 +257,5 @@ section:nth-of-type(2) {
 
 
 .heart { 
-    @include heart(calc(-100% + 55px), 90px);
+    @include heart;
 }

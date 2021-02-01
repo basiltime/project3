@@ -23,23 +23,23 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: space-around;
+    align-items: center;
     padding: 17px 0px;
     box-shadow: inset 0px 2px 5px darken($color-med-gray, 20%);
     }
 
-     
+     // The block containing 'Book the menu you like', and the 'Explore our restaurants' button
     .header__main {
     @include flex-column-center;
     @include background-color($color-light-gray);
     width: 100%;
     @include desktop-only {
-       width: 42%;
-       max-width: 600px;
+       width: 40%;
+       max-width: 560px;
        height: 440px;
        border-radius: 30px;
        position: absolute;
-       right: 53.5%;
+       right: 52.5%;
        top: 230px;
        background-color: $color-light-gray;
     

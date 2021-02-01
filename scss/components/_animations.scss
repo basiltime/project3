@@ -1,32 +1,22 @@
 
-@keyframes loading-spinner {
-    from {
-    opacity: 1;
-    transform: rotate(.33turn);
-    
-    }
 
-    to {
-        opacity: 1;
-        display: none;   
-    }
-}
 
-@keyframes anchor-spinner {
-    from {
+@keyframes dot-rotate {
+    0% {
         opacity: 1;
         transform: rotate(360deg)
     }
 
-    to {
+    100% {
         opacity: 1;
-        display: none;
+       
     }
 }
 
 
+
 #loading-spinner {
-    opacity: 1; //opacity must be 0 for get rid of it after animation finishes
+    opacity: 1;
     position: absolute;
     margin: 0 auto;
     left: 0px;
@@ -36,8 +26,8 @@
     width: 100px;
     height: 100px;
     @include flex-column-center;
+    animation-duration: 3.5s;
    
- 
     & .dot-one { 
         padding: 5px;
         width: 5px;
@@ -99,43 +89,69 @@
        
     opacity: 1;
     z-index: 8;
+    
+    
     }
 
     to {  
     z-index: 8;
     opacity: 1;
-    
        
     }
 }
 
 //Gray background div
 #loading-spinner-background {
-
-    
+   
     opacity: 0;
     z-index: -9999;
-    height: 2300px;
+    height: 100%;
     width: 100%;
-    background-color: $color-light-gray;
+    
     position: absolute;
     top: 0px;
     bottom: 0px;
     left: 0px;
     right: 0px;
     animation-fill-mode: backwards;
-    //animation: loading-spinner-background;
-    animation-duration: 3.5s;
+    animation: loading-spinner-background;
+    animation-duration: 3.4s;
+    
+
 }
 
 
+@keyframes no-scroll {
+    0% {
+        opacity: 0;
+    }
+
+    99% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+#page-content {
+    opacity: 1;
+    animation: no-scroll;
+    animation-duration: 3.4s;
+}
+
+
+
+
 // Mixin for the dot animations (customized by the $animation-delay argument)
-@mixin dot-anchor($animation-delay) {
+@mixin circle-anchor($animation-delay) {
     opacity: 0;
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    //animation-name: anchor-spinner;
+    animation-name: dot-rotate;
     animation-timing-function: cubic-bezier(.67,.33,.27,.61);
     animation-duration: 1s;
     animation-fill-mode: backwards;
@@ -143,32 +159,29 @@
     animation-iteration-count: 3;
     transform-origin: center;
     position: absolute; 
-
-    
    
 }
 
 
 // Each individual dot anchor with it's own animation delay 
-.dot-anchor:nth-of-type(1) {
-   @include dot-anchor(.27s)
-    
+.circle-anchor:nth-of-type(1) {
+   @include circle-anchor(.27s)
 }
 
-.dot-anchor:nth-of-type(2) {
-    @include dot-anchor(.23s)  
+.circle-anchor:nth-of-type(2) {
+    @include circle-anchor(.23s)  
 }
 
-.dot-anchor:nth-of-type(3) {
-    @include dot-anchor(.2s)
+.circle-anchor:nth-of-type(3) {
+    @include circle-anchor(.2s)
 }
 
-.dot-anchor:nth-of-type(4) {
-    @include dot-anchor(.15s)
+.circle-anchor:nth-of-type(4) {
+    @include circle-anchor(.15s)
 }
 
-.dot-anchor:nth-of-type(5) {
-    @include dot-anchor(.1s)
+.circle-anchor:nth-of-type(5) {
+    @include circle-anchor(.1s)
 }
 
 
@@ -176,13 +189,14 @@
 
 // Heart animation //
 
-@mixin heart($position-right, $position-bottom, $font-size: 25px) {
+@mixin heart {
 
     position: relative;
-    right: $position-right; 
-    bottom: $position-bottom; 
-    font-size: $font-size; 
+    right: calc(-100% + 55px); 
+    bottom: 87px; 
+    font-size: 27px; 
     width: 40px;
+
 
     &::before {
   
@@ -196,7 +210,7 @@
         
     }
 
-    &:active {
+    &:hover {
         &::before {
             opacity: 0;
             transition: opacity 0s ease-out;
@@ -210,21 +224,7 @@
 
     }
 
-    @include desktop-only {
-        &:hover {
-        &::before {
-            opacity: 0;
-            transition: opacity 0s ease-out;
-
-        }
-        &::after {
-            opacity: 1;
-            transition: all .5s;
-            transition-timing-function: cubic-bezier(.49,.42,.54,.96);
-        }
-    }
     
-}
 
     &::after {
         font-family: "Font Awesome 5 Free";
@@ -239,9 +239,7 @@
         bottom: 0;
         left: 0;
         // Gradient background //
-        background: rgb(147,86,220);
-        background: linear-gradient(169deg, rgba(147,86,220,1) 12%, rgba(255,121,218,1) 56%);
-        background-clip: text;
+        background: -webkit-linear-gradient($color-primary, $color-secondary);
         -webkit-background-clip: text;
         color: transparent;
         padding: 5px;
@@ -249,6 +247,23 @@
 
     }      
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @keyframes menu-section-delay {
   
@@ -272,32 +287,5 @@
     
 }
 
-@keyframes price-and-checkmark-left {
-
-    0% {    
-    transform: translateX(0px);
-    }
 
 
-
-    100% {
-    transform: translateX(-65px)
-    }
-
-
-}
-
-@keyframes price-and-checkmark-right {
-
-    0% {    
-    transform: translateX(0px);
-    }
-
-
-
-    100% {
-    transform: translateX(65px)
-    }
-
-
-}

@@ -3,10 +3,7 @@
 footer {
     @include footer;
     @include background-color(#282828);
-    @include desktop-only {
-        font-size: larger;
-        padding-left: 8%;
-    }
+    
 }
     footer a {
         @include footer-a;
