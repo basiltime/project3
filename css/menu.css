@@ -468,20 +468,6 @@ main {
   padding: 5px;
 }
 
-.menu-header .heart:hover::before {
-  opacity: 0;
-  -webkit-transition: opacity 0s ease-out;
-  transition: opacity 0s ease-out;
-}
-
-.menu-header .heart:hover::after {
-  opacity: 1;
-  -webkit-transition: all .5s;
-  transition: all .5s;
-  -webkit-transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
-          transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
-}
-
 .menu-header .heart::after {
   font-family: "Font Awesome 5 Free";
   content: "\f004";
@@ -498,6 +484,36 @@ main {
   -webkit-background-clip: text;
   color: transparent;
   padding: 5px;
+}
+
+@media (hover: hover) {
+  .menu-header .heart:hover::before {
+    opacity: 0;
+    -webkit-transition: opacity 0s ease-out;
+    transition: opacity 0s ease-out;
+  }
+  .menu-header .heart:hover::after {
+    opacity: 1;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+            transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+  }
+}
+
+@media (any-hover: on-demand) {
+  .menu-header .heart:active::before {
+    opacity: 0;
+    -webkit-transition: opacity 0s ease-out;
+    transition: opacity 0s ease-out;
+  }
+  .menu-header .heart:active::after {
+    opacity: 1;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+            transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+  }
 }
 
 .section {
@@ -654,13 +670,13 @@ main {
   margin-left: -55px;
 }
 
-.section .dish:hover .dish__name-and-description {
+.section .dish:active .dish__name-and-description {
   margin-right: 120px;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
 }
 
-.section .dish:hover .dish__price-and-checkmark {
+.section .dish:active .dish__price-and-checkmark {
   -webkit-transform: translateX(-65px);
           transform: translateX(-65px);
   -webkit-transition-duration: .5s;
@@ -668,7 +684,7 @@ main {
   margin-left: -110px;
 }
 
-.section .dish:hover .dish__price-and-checkmark div > i {
+.section .dish:active .dish__price-and-checkmark div > i {
   -webkit-transform: rotate(1turn);
           transform: rotate(1turn);
   -webkit-transition: -webkit-transform 500ms ease-in-out;
@@ -678,6 +694,32 @@ main {
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms;
   border-radius: 20px;
+}
+
+@media (min-width: 800px) {
+  .section .dish:hover .dish__name-and-description {
+    margin-right: 120px;
+    -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s;
+  }
+  .section .dish:hover .dish__price-and-checkmark {
+    -webkit-transform: translateX(-65px);
+            transform: translateX(-65px);
+    -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+    margin-left: -110px;
+  }
+  .section .dish:hover .dish__price-and-checkmark div > i {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+    -webkit-transition: -webkit-transform 500ms ease-in-out;
+    transition: -webkit-transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+    -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+    border-radius: 20px;
+  }
 }
 
 .section .dish__name-and-description {
@@ -757,7 +799,7 @@ main {
 }
 
 .button:hover {
-  background-image: linear-gradient(175deg, #ff81dc 0%, #965add 100%);
+  background-image: linear-gradient(175deg, #ff83dd 0%, #985ede 100%);
   -webkit-box-shadow: 0px 3px 15px 0px #8c8c8c;
           box-shadow: 0px 3px 15px 0px #8c8c8c;
 }

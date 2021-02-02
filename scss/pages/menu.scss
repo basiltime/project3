@@ -173,7 +173,7 @@ main {
         }
 
         // Hover animations
-        &:hover {
+        &:active {
             
             .dish__name-and-description {
                 margin-right: 120px;
@@ -195,6 +195,34 @@ main {
                     }
                 }
            
+        }
+
+        // Hover animation for desktop
+        @include desktop-only {
+            &:hover {
+            
+                .dish__name-and-description {
+                    margin-right: 120px;
+                    transition-duration: 0.5s;
+                    
+                }
+            
+                .dish__price-and-checkmark {
+                transform: translateX(-65px);
+                transition-duration: .5s;
+                margin-left: -110px;
+      
+                    // styles the div containing the checkmark icon
+                    & div  > i {
+                        transform: rotate(1turn);
+                        transition: transform 500ms ease-in-out;
+                        transition-duration: 500ms;
+                        border-radius: 20px;
+                        }
+                    }
+               
+            }
+
         }
 
         // Name of dish and description text below

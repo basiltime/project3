@@ -190,7 +190,6 @@
 // Heart animation //
 
 @mixin heart {
-
     position: relative;
     right: calc(-100% + 55px); 
     bottom: 87px; 
@@ -210,22 +209,6 @@
         
     }
 
-    &:hover {
-        &::before {
-            opacity: 0;
-            transition: opacity 0s ease-out;
-
-        }
-        &::after {
-            opacity: 1;
-            transition: all .5s;
-            transition-timing-function: cubic-bezier(.49,.42,.54,.96);
-        }
-
-    }
-
-    
-
     &::after {
         font-family: "Font Awesome 5 Free";
         content: "\f004";
@@ -243,9 +226,45 @@
         -webkit-background-clip: text;
         color: transparent;
         padding: 5px;
-        
 
-    }      
+    } 
+
+    // Hover on Desktop
+    @include media-query-hover {
+        &:hover{
+            &::before {
+                opacity: 0;
+                transition: opacity 0s ease-out;
+            }
+            &::after {
+                opacity: 1;
+                transition: all .5s;
+                transition-timing-function: cubic-bezier(.49,.42,.54,.96);
+            }
+      
+        }
+
+    }
+
+    // Click on Mobile/Tablet
+
+    @include media-query-click {
+    &:active{
+        &::before {
+            opacity: 0;
+            transition: opacity 0s ease-out;
+        }
+        &::after {
+            opacity: 1;
+            transition: all .5s;
+            transition-timing-function: cubic-bezier(.49,.42,.54,.96);
+        }
+  
+    }
+}
+    
+
+         
 }
 
 

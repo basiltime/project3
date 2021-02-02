@@ -386,7 +386,7 @@ body {
 }
 
 .button:hover {
-  background-image: linear-gradient(175deg, #ff81dc 0%, #965add 100%);
+  background-image: linear-gradient(175deg, #ff83dd 0%, #985ede 100%);
   -webkit-box-shadow: 0px 3px 15px 0px #8c8c8c;
           box-shadow: 0px 3px 15px 0px #8c8c8c;
 }
@@ -656,6 +656,12 @@ section:nth-of-type(1) ol a {
   font-weight: 500;
 }
 
+section:nth-of-type(1) ol a:hover {
+  -webkit-box-shadow: 0px 3px 15px 0px #bfbfbf;
+          box-shadow: 0px 3px 15px 0px #bfbfbf;
+  background-color: #f6f6f6;
+}
+
 @media (min-width: 800px) {
   section:nth-of-type(1) ol a {
     width: 95%;
@@ -666,6 +672,10 @@ section:nth-of-type(1) ol a {
 
 section:nth-of-type(1) li:nth-of-type(3) a {
   background-color: #f2eafb;
+}
+
+section:nth-of-type(1) li:nth-of-type(3) a:hover {
+  background-color: #f4edfb;
 }
 
 section:nth-of-type(1) li:nth-of-type(3) i {
@@ -880,20 +890,6 @@ section:nth-of-type(2) .card-wrapper {
   padding: 5px;
 }
 
-.heart:hover::before {
-  opacity: 0;
-  -webkit-transition: opacity 0s ease-out;
-  transition: opacity 0s ease-out;
-}
-
-.heart:hover::after {
-  opacity: 1;
-  -webkit-transition: all .5s;
-  transition: all .5s;
-  -webkit-transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
-          transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
-}
-
 .heart::after {
   font-family: "Font Awesome 5 Free";
   content: "\f004";
@@ -910,6 +906,36 @@ section:nth-of-type(2) .card-wrapper {
   -webkit-background-clip: text;
   color: transparent;
   padding: 5px;
+}
+
+@media (hover: hover) {
+  .heart:hover::before {
+    opacity: 0;
+    -webkit-transition: opacity 0s ease-out;
+    transition: opacity 0s ease-out;
+  }
+  .heart:hover::after {
+    opacity: 1;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+            transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+  }
+}
+
+@media (any-hover: on-demand) {
+  .heart:active::before {
+    opacity: 0;
+    -webkit-transition: opacity 0s ease-out;
+    transition: opacity 0s ease-out;
+  }
+  .heart:active::after {
+    opacity: 1;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+            transition-timing-function: cubic-bezier(0.49, 0.42, 0.54, 0.96);
+  }
 }
 
 footer {
