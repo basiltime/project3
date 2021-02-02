@@ -1,5 +1,8 @@
-Project 3 Page Content
+Project 3
 ============
+
+https://basiltime.github.io/project3/
+-------------------------------------
 
 **Homepage (x1)** 
 -----------------
