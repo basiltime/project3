@@ -1,17 +1,20 @@
+// Media query for desktop layout
 @mixin desktop-only {
         @media (min-width: 800px) {
             @content;
         }
   }
 
+// Media query for computer screens (animations triggered on hover)
 @mixin media-query-hover {
-    @media (hover: hover) {
+    @media (min-width: 1250px) {
         @content;
     }
 }
 
+// Media query for computer screens (animations triggered on click/touch)
 @mixin media-query-click {
-    @media (any-hover: on-demand) {
+    @media (max-width: 1250px) {
         @content;
     }
 }
@@ -23,8 +26,7 @@
     justify-content: center;
     }
     
-
-// Logo mixin 
+// Logo 
 @mixin logo($margin-bottom) {
     width: 175px;
     position: relative;
@@ -32,8 +34,7 @@
     margin-bottom: $margin-bottom;
 }
 
-
-// Use this mixin to access set-text-color function
+// Use this mixin with set-text-color function
 @mixin background-color($bg-color){            
     background-color: $bg-color;                
     color: set-text-color($bg-color);
@@ -43,12 +44,11 @@
     box-shadow: 0px 3px 15px 0px $color;
 }
 
-
 @mixin section-padding {
     padding: 40px 4%;
 }
 
-// "How it works" and "Restaurants" section headers
+// Homepage section headers
 @mixin section-header { 
    // width: 90%;
    // padding: 40px 0px 30px 0px;
@@ -58,11 +58,10 @@
     padding: 20px;
 }
 
-// z-indexes mixin
+// z-indexes mixin. Use with $layer map
 @mixin layer($layer-name) {
     z-index: map-get($layers, $layer-name);
 }
-
 
 @mixin button-hover {
     background-image: linear-gradient(175deg, lighten($color-secondary, 2%) 0%, lighten($color-primary, 2%) 100%);
@@ -87,7 +86,7 @@
     min-width: 200px;
     font-weight: 500;
     &:focus {
-        // Gets rid of default 
+        // Gets rid of default  
         outline-style: unset;  
     }
     &:hover {
@@ -95,10 +94,9 @@
     }
 }
 
-
-
-
+// Footer 
 @mixin footer {
+    @include background-color(#282828);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -110,22 +108,18 @@
         padding-left: 2%;
         
     }
-    
-    
-}
 
-@mixin footer-logo {
-    // Width, padding and color of the image 
-    width: 100px;
-    padding-bottom: 25px;
-    /* Changes color of logo from black to white */
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
-    @include desktop-only {
-        margin-left: 10%;
+    & img {
+        width: 100px;
+        padding-bottom: 25px;
+        // Changes color of logo from black to white 
+        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
+        @include desktop-only {
+            margin-left: 10%;
+        }
     }
-}
-
-@mixin footer-a { 
+    
+    & a {
     width: 90%;
     height: fit-content;
     display: flex;
@@ -135,27 +129,26 @@
     @include desktop-only {
         margin-left: 10%;
     }
+     }
+
+    & a:nth-of-type(1) i {
+        margin-right: 10px;
+        
+    }
+
+    & a:nth-of-type(2) i {
+        // Condenses the handshake icon, which is originally too wide
+        transform: scale(.7, 1);
+        transform-origin: left;
+        overflow: hidden;
+      
+    }
+
+    & span {
+        width: 14px;  
+        margin-right: 10px;
+    }
+
+    
 
 }
-
-
-
-@mixin footer-i {
-   margin-right: 10px;
-   
-}
-
-@mixin footer-i-condense {
-    // Condenses the handshake icon, which is originally too wide
-    transform: scale(.7, 1);
-    transform-origin: left;
-    overflow: hidden;
-
-}
-
-@mixin footer-span {
-    width: 14px;  
-    margin-right: 10px;
-
-}
-

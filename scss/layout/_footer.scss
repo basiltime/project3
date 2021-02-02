@@ -1,32 +1,4 @@
-// Footer styling
-
 footer {
-    @include footer;
-    @include background-color(#282828);
-    
+    @include footer
 }
-    footer a {
-        @include footer-a;
-        
-    }
 
-    footer a:nth-of-type(1) i {
-        @include footer-i;
-        
-    }
-
-    
-
-    footer a:nth-of-type(2) i {
-        @include footer-i;
-        @include footer-i-condense;
-      
-    }
-
-    footer span {
-        @include footer-span;
-    }
-
-    footer img {
-        @include footer-logo;
-    }

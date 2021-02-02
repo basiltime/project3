@@ -908,7 +908,7 @@ section:nth-of-type(2) .card-wrapper {
   padding: 5px;
 }
 
-@media (hover: hover) {
+@media (min-width: 1250px) {
   .heart:hover::before {
     opacity: 0;
     -webkit-transition: opacity 0s ease-out;
@@ -923,7 +923,7 @@ section:nth-of-type(2) .card-wrapper {
   }
 }
 
-@media (any-hover: on-demand) {
+@media (max-width: 1250px) {
   .heart:active::before {
     opacity: 0;
     -webkit-transition: opacity 0s ease-out;
@@ -939,6 +939,8 @@ section:nth-of-type(2) .card-wrapper {
 }
 
 footer {
+  background-color: #282828;
+  color: white;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -954,14 +956,25 @@ footer {
       -ms-flex-align: start;
           align-items: flex-start;
   padding: 8% 0% 10% 5%;
-  background-color: #282828;
-  color: white;
 }
 
 @media (min-width: 800px) {
   footer {
     font-size: 120%;
     padding-left: 2%;
+  }
+}
+
+footer img {
+  width: 100px;
+  padding-bottom: 25px;
+  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
+          filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
+}
+
+@media (min-width: 800px) {
+  footer img {
+    margin-left: 10%;
   }
 }
 
@@ -994,7 +1007,6 @@ footer a:nth-of-type(1) i {
 }
 
 footer a:nth-of-type(2) i {
-  margin-right: 10px;
   -webkit-transform: scale(0.7, 1);
           transform: scale(0.7, 1);
   -webkit-transform-origin: left;
@@ -1005,19 +1017,5 @@ footer a:nth-of-type(2) i {
 footer span {
   width: 14px;
   margin-right: 10px;
-}
-
-footer img {
-  width: 100px;
-  padding-bottom: 25px;
-  /* Changes color of logo from black to white */
-  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
-          filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(221deg) brightness(101%) contrast(104%);
-}
-
-@media (min-width: 800px) {
-  footer img {
-    margin-left: 10%;
-  }
 }
 /*# sourceMappingURL=main.css.map */
