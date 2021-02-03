@@ -246,7 +246,7 @@
     // Click on Mobile/Tablet
 
     @include media-query-click {
-    &:hover, :active{
+    &:hover, &:active{
         &::before {
             opacity: 0;
             transition: opacity 0s ease-out;
