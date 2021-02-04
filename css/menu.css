@@ -502,12 +502,12 @@ main {
 }
 
 @media (max-width: 1250px) {
-  .menu-header .heart:hover::before, .menu-header .heart:active::before {
+  .menu-header .heart:active::before {
     opacity: 0;
     -webkit-transition: opacity 0s ease-out;
     transition: opacity 0s ease-out;
   }
-  .menu-header .heart:hover::after, .menu-header .heart:active::after {
+  .menu-header .heart:active::after {
     opacity: 1;
     -webkit-transition: all .5s;
     transition: all .5s;
