@@ -23,7 +23,7 @@
     width: 100px;
     height: 100px;
     @include flex-column-center;
-    animation-duration: 1.2s;
+    animation-duration: 1.3s;
    
     & .dot-one { 
         padding: 5px;
@@ -104,7 +104,6 @@
     z-index: -9999;
     height: 100%;
     width: 100%;
-    
     position: absolute;
     top: 0px;
     bottom: 0px;
@@ -112,7 +111,7 @@
     right: 0px;
     animation-fill-mode: backwards;
     animation: loading-spinner-background;
-    animation-duration: 3.4s;
+    animation-duration: 1.3s;
     
 
 }
@@ -136,7 +135,7 @@
 #page-content {
     opacity: 1;
     animation: no-scroll;
-    animation-duration: 3.4s;
+    animation-duration: 1.3s;
 }
 
 
@@ -153,7 +152,7 @@
     animation-duration: 1s;
     animation-fill-mode: backwards;
     animation-delay: $animation-delay;
-    animation-iteration-count: 3;
+    animation-iteration-count: 1;
     transform-origin: center;
     position: absolute; 
    
@@ -243,8 +242,7 @@
 
     }
 
-    // Click on Mobile/Tablet
-
+    //Click on Mobile/Tablet
     @include media-query-click {
     &:active {
         &::before {
